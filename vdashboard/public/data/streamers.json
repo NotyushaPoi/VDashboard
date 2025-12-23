@@ -1,0 +1,255 @@
+{
+  "streamers": [
+    {
+      "id": 1,
+      "name": "希罗Kirara",
+      "bilibiliId": "12345678",
+      "liveUrl": "https://www.bilibili.com/1",
+      "avatar": "/images/streamers/placeholder.jpg",
+      "banner": "/images/streamers/placeholder-banner.jpg",
+      "bio": "简介占位，待更新...",
+      "description": "这是关于希罗Kirara的详细介绍。",
+      "fans": "加载中...",
+      "playlists": [
+        {
+          "name": "歌单一",
+          "songs": [
+            {
+              "name": "123木头人",
+              "artist": "黑Girl",
+              "genre": "流行",
+              "lyrics": "这是歌词占位\n可以通过API动态获取真实歌词",
+              "url": "https://music.example.com/song1"
+            },
+            {
+              "name": "3月9日",
+              "artist": "Remioromen",
+              "genre": "日语",
+              "lyrics": "3月9日の朝\n目覚めた时に君がいた",
+              "url": "https://music.example.com/song2"
+            },
+            {
+              "name": "99次我爱他",
+              "artist": "元若蓝",
+              "genre": "流行",
+              "lyrics": "歌词占位",
+              "url": "https://music.example.com/song3"
+            }
+          ]
+        },
+        {
+          "name": "电音精选",
+          "songs": [
+            {
+              "name": "Hacking to the Gate",
+              "artist": "伊藤加奈惠",
+              "genre": "日语",
+              "lyrics": "歌词占位",
+              "url": "https://music.example.com/song4"
+            }
+          ]
+        }
+      ],
+      "animes": [
+        {
+          "name": "暮光之城",
+          "episodes": 5,
+          "status": "在看",
+          "url": "https://anime.example.com/1"
+        },
+        {
+          "name": "时间旅行的少女",
+          "episodes": 14,
+          "status": "已完成",
+          "url": "https://anime.example.com/2"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Yvaine可可",
+      "bilibiliId": "87654321",
+      "liveUrl": "https://www.bilibili.com/2",
+      "avatar": "/images/streamers/placeholder.jpg",
+      "banner": "/images/streamers/placeholder-banner.jpg",
+      "bio": "简介占位，待更新...",
+      "description": "这是关于Yvaine可可的详细介绍。",
+      "fans": "加载中...",
+      "playlists": [
+        {
+          "name": "治愈系歌单",
+          "songs": [
+            {
+              "name": "First Love",
+              "artist": "宇多田光",
+              "genre": "日语",
+              "lyrics": "First Love的歌词",
+              "url": "https://music.example.com/song5"
+            },
+            {
+              "name": "Honey",
+              "artist": "王心凌",
+              "genre": "流行",
+              "lyrics": "Honey歌词占位",
+              "url": "https://music.example.com/song6"
+            }
+          ]
+        }
+      ],
+      "animes": [
+        {
+          "name": "物语系列",
+          "episodes": 50,
+          "status": "在看",
+          "url": "https://anime.example.com/3"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "恰恰恰蘑菇",
+      "bilibiliId": "11111111",
+      "liveUrl": "https://www.bilibili.com/3",
+      "avatar": "/images/streamers/placeholder.jpg",
+      "banner": "/images/streamers/placeholder-banner.jpg",
+      "bio": "简介占位，待更新...",
+      "description": "这是关于恰恰恰蘑菇的详细介绍。",
+      "fans": "加载中...",
+      "playlists": [
+        {
+          "name": "K-pop合集",
+          "songs": [
+            {
+              "name": "Gee",
+              "artist": "少女时代",
+              "genre": "韩语",
+              "lyrics": "Gee歌词占位",
+              "url": "https://music.example.com/song7"
+            },
+            {
+              "name": "Butterfly",
+              "artist": "和田光司",
+              "genre": "日语",
+              "lyrics": "Butterfly歌词占位",
+              "url": "https://music.example.com/song8"
+            }
+          ]
+        }
+      ],
+      "animes": [
+        {
+          "name": "进击的巨人",
+          "episodes": 16,
+          "status": "已完成",
+          "url": "https://anime.example.com/4"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "姬月樱",
+      "bilibiliId": "22222222",
+      "liveUrl": "https://www.bilibili.com/4",
+      "avatar": "/images/streamers/placeholder.jpg",
+      "banner": "/images/streamers/placeholder-banner.jpg",
+      "bio": "简介占位，待更新...",
+      "description": "这是关于姬月樱的详细介绍。",
+      "fans": "加载中...",
+      "playlists": [
+        {
+          "name": "古风歌单",
+          "songs": [
+            {
+              "name": "长歌行",
+              "artist": "陈伟霆",
+              "genre": "流行",
+              "lyrics": "长歌行歌词占位",
+              "url": "https://music.example.com/song9"
+            }
+          ]
+        }
+      ],
+      "animes": [
+        {
+          "name": "天官赐福",
+          "episodes": 15,
+          "status": "在看",
+          "url": "https://anime.example.com/5"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "悄悄Qoo",
+      "bilibiliId": "33333333",
+      "liveUrl": "https://www.bilibili.com/5",
+      "avatar": "/images/streamers/placeholder.jpg",
+      "banner": "/images/streamers/placeholder-banner.jpg",
+      "bio": "简介占位，待更新...",
+      "description": "这是关于悄悄Qoo的详细介绍。",
+      "fans": "加载中...",
+      "playlists": [
+        {
+          "name": "摇滚精选",
+          "songs": [
+            {
+              "name": "Brave Heart",
+              "artist": "宫崎步",
+              "genre": "日语",
+              "lyrics": "Brave Heart歌词占位",
+              "url": "https://music.example.com/song10"
+            }
+          ]
+        }
+      ],
+      "animes": [
+        {
+          "name": "死神",
+          "episodes": 366,
+          "status": "在看",
+          "url": "https://anime.example.com/6"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "浅律Asaritsu",
+      "bilibiliId": "44444444",
+      "liveUrl": "https://www.bilibili.com/6",
+      "avatar": "/images/streamers/placeholder.jpg",
+      "banner": "/images/streamers/placeholder-banner.jpg",
+      "bio": "简介占位，待更新...",
+      "description": "这是关于浅律Asaritsu的详细介绍。",
+      "fans": "加载中...",
+      "playlists": [
+        {
+          "name": "民谣精选",
+          "songs": [
+            {
+              "name": "Friend",
+              "artist": "玉置浩二",
+              "genre": "日语",
+              "lyrics": "Friend歌词占位",
+              "url": "https://music.example.com/song11"
+            },
+            {
+              "name": "A Thousand Years",
+              "artist": "Christina Perri",
+              "genre": "英语",
+              "lyrics": "A Thousand Years歌词占位",
+              "url": "https://music.example.com/song12"
+            }
+          ]
+        }
+      ],
+      "animes": [
+        {
+          "name": "恋爱是蓝色的",
+          "episodes": 13,
+          "status": "已完成",
+          "url": "https://anime.example.com/7"
+        }
+      ]
+    }
+  ]
+}

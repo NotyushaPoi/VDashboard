@@ -1,36 +1,186 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VDashboard 🎬
 
-## Getting Started
+一个现代化的主播展示平台，展示你喜爱的主播、她们的歌单和追番列表。
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19.2.3-61dafb?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-38b2ac?logo=tailwindcss)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+## ✨ 主要特性
+
+- 🎪 **自动轮播展示** - 主播宣传图自动播放，点击进入详情页
+- 🎵 **歌单管理** - 展示歌曲、歌手、流派，点击[歌词]按钮查看歌词
+- 📺 **追番列表** - 管理追番列表，标记观看状态
+- 🌙 **Dark Mode** - 完整的深色模式支持，自动保存偏好
+- 📱 **响应式设计** - 完美适配手机、平板、桌面设备
+- ⚡ **高性能** - 静态生成 (SSG) + CDN 友好
+- 📝 **易于维护** - JSON 数据存储，无需数据库
+
+## 🚀 快速开始
+
+### 需要
+- Node.js 18+ 
+- pnpm 10+
+
+### 安装和运行
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# 克隆项目
+cd vdashboard
+
+# 安装依赖
+pnpm install
+
+# 启动开发服务器（localhost:3000）
 pnpm dev
-# or
-bun dev
+
+# 构建生产版本
+pnpm build
+
+# 启动生产服务器
+pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📚 文档
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **[快速开始指南](./QUICK_START.md)** - 5 分钟快速上手
+- **[功能演示](./FEATURE_DEMO.md)** - 看看都能做什么
+- **[完整文档](./README_VDASHBOARD.md)** - 详细功能介绍
+- **[开发指南](./DEVELOPMENT.md)** - 如何修改代码
+- **[定制指南](./CUSTOMIZATION.md)** - 替换图片、集成 API
+- **[部署指南](./DEPLOYMENT.md)** - 部署到线上
+- **[文档索引](./DOCS_INDEX.md)** - 所有文档导航
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 使用场景
 
-## Learn More
+### 主播推荐
+展示你喜爱的主播，让粉丝快速了解她们
 
-To learn more about Next.js, take a look at the following resources:
+### 内容管理
+轻松管理歌单、番剧等内容，支持增删改查
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 粉丝互动
+通过轮播、卡片等多种方式展示主播信息
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📊 项目结构
 
-## Deploy on Vercel
+```
+vdashboard/
+├── app/
+│   ├── page.tsx              # 主页（轮播 + 卡片）
+│   ├── layout.tsx            # 根布局 + Dark Mode
+│   ├── globals.css           # 全局样式
+│   ├── components/           # 组件库
+│   │   ├── Navbar.tsx
+│   │   ├── Carousel.tsx
+│   │   ├── TabPanel.tsx
+│   │   ├── LyricsModal.tsx
+│   │   ├── CopyButton.tsx
+│   │   └── ...
+│   ├── lib/
+│   │   ├── types.ts          # TypeScript 类型
+│   │   └── utils.ts          # 工具函数
+│   └── streamer/
+│       └── [id]/page.tsx     # 动态子页面
+│
+├── public/
+│   ├── data/
+│   │   └── streamers.json    # 主播数据
+│   └── images/streamers/     # 头像和宣传图
+│
+└── 📄 文档文件们...
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 💡 如何修改
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 更新主播信息
+
+编辑 `public/data/streamers.json`：
+
+```json
+{
+  "id": 1,
+  "name": "主播名称",
+  "bio": "简短介绍",
+  "playlists": [
+    {
+      "name": "歌单名",
+      "songs": [
+        {
+          "name": "歌曲名",
+          "artist": "艺术家",
+          "genre": "流派",
+          "lyrics": "歌词...",
+          "url": "https://..."
+        }
+      ]
+    }
+  ],
+  "animes": [
+    {
+      "name": "番剧名",
+      "episodes": 12,
+      "status": "在看",
+      "url": "https://..."
+    }
+  ]
+}
+```
+
+### 替换头像和宣传图
+
+1. 将图片放入 `public/images/streamers/`
+2. 在 JSON 中更新路径：
+```json
+{
+  "avatar": "/images/streamers/name.jpg",
+  "banner": "/images/streamers/banner.jpg"
+}
+```
+
+### 改变样式
+
+编辑组件中的 Tailwind CSS class：
+```tsx
+<div className="bg-purple-500 dark:bg-purple-700">
+  主题颜色
+</div>
+```
+
+## 🌐 部署
+
+### Vercel（推荐）
+最简单的部署方式，支持自动更新：
+
+1. 推送代码到 GitHub
+2. 连接 Vercel：https://vercel.com
+3. 自动部署完成！
+
+### 自托管
+支持 VPS、Docker 等多种方式，详见 [部署指南](./DEPLOYMENT.md)
+
+## 🔗 技术栈
+
+- **Next.js 16** - React 框架
+- **TypeScript** - 类型安全
+- **Tailwind CSS** - 样式系统
+- **next-themes** - Dark Mode 支持
+- **ESLint** - 代码质量
+
+## 📄 许可证
+
+MIT License - 详见 LICENSE 文件
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 📞 支持
+
+有问题？查看 [常见问题](./QUICK_START.md#常见问题排查) 或 [文档索引](./DOCS_INDEX.md)
+
+---
+
+**现在就开始吧！🚀 阅读 [快速开始指南](./QUICK_START.md)**
