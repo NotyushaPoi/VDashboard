@@ -1,136 +1,226 @@
 "use client";
 
-import { useState } from "react";
-import { Playlist, Anime } from "@/app/lib/types";
+import { useState, useMemo } from "react";
+import { Playlist } from "@/app/lib/types";
 import { CopyButton } from "@/app/components/CopyButton";
 import { LyricsModal } from "@/app/components/LyricsModal";
 
 interface TabPanelProps {
   playlists: Playlist[];
-  animes: Anime[];
 }
 
-export function TabPanel({ playlists, animes }: TabPanelProps) {
-  const [activeTab, setActiveTab] = useState<"playlists" | "animes">("playlists");
+export function TabPanel({ playlists }: TabPanelProps) {
   const [selectedSong, setSelectedSong] = useState<{
     name: string;
     artist: string;
     lyrics: string;
   } | null>(null);
+  
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterTag, setFilterTag] = useState<string | null>(null);
+  const [filterLanguage, setFilterLanguage] = useState<string | null>(null);
+  const [filterArtist, setFilterArtist] = useState<string | null>(null);
+  const [filterAlbum, setFilterAlbum] = useState<string | null>(null);
 
-  const tabs = [
-    { id: "playlists", label: `🎵 歌单 (${playlists.length})` },
-    { id: "animes", label: `📺 追番 (${animes.length})` },
-  ];
+  // 收集所有歌曲
+  const allSongs = useMemo(() => {
+    return playlists.flatMap((playlist) =>
+      playlist.songs.map((song) => ({ ...song, playlistName: playlist.name }))
+    );
+  }, [playlists]);
+
+  // 收集所有标签、语言、歌手、专辑
+  const tags = useMemo(() => {
+    return [...new Set(allSongs.map((s) => s.tag).filter(Boolean))];
+  }, [allSongs]);
+
+  const languages = useMemo(() => {
+    return [...new Set(allSongs.map((s) => s.language).filter(Boolean))];
+  }, [allSongs]);
+
+  const artists = useMemo(() => {
+    return [...new Set(allSongs.map((s) => s.artist).filter(Boolean))];
+  }, [allSongs]);
+
+  const albums = useMemo(() => {
+    return [...new Set(allSongs.map((s) => s.album).filter(Boolean))];
+  }, [allSongs]);
+
+  // 过滤歌曲
+  const filteredSongs = useMemo(() => {
+    return allSongs.filter((song) => {
+      const matchesSearch = searchQuery === "" || song.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesTag = filterTag === null || song.tag === filterTag;
+      const matchesLanguage = filterLanguage === null || song.language === filterLanguage;
+      const matchesArtist = filterArtist === null || song.artist === filterArtist;
+      const matchesAlbum = filterAlbum === null || song.album === filterAlbum;
+      
+      return matchesSearch && matchesTag && matchesLanguage && matchesArtist && matchesAlbum;
+    });
+  }, [allSongs, searchQuery, filterTag, filterLanguage, filterArtist, filterAlbum]);
 
   return (
     <div className="w-full">
-      {/* Tab Buttons */}
-      <div className="flex gap-2 border-b border-gray-200 dark:border-gray-700 mb-6 overflow-x-auto">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as typeof activeTab)}
-            className={`px-4 py-3 font-semibold whitespace-nowrap transition-colors border-b-2 ${
-              activeTab === tab.id
-                ? "border-purple-500 text-purple-600 dark:text-purple-400"
-                : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+      {/* 标题 */}
+      <div className="mb-6">
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          🎵 歌单 ({playlists.length})
+        </h3>
+
+        {/* 搜索框 */}
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="搜索歌曲名称..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+        </div>
+
+        {/* 筛选框 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Tag 筛选 */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              标签
+            </label>
+            <select
+              value={filterTag || ""}
+              onChange={(e) => setFilterTag(e.target.value || null)}
+              className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              <option value="">全部标签</option>
+              {tags.map((tag) => (
+                <option key={tag} value={tag}>
+                  {tag}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* 语言筛选 */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              语言
+            </label>
+            <select
+              value={filterLanguage || ""}
+              onChange={(e) => setFilterLanguage(e.target.value || null)}
+              className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              <option value="">全部语言</option>
+              {languages.map((lang) => (
+                <option key={lang} value={lang}>
+                  {lang}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* 歌手筛选 */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              歌手
+            </label>
+            <select
+              value={filterArtist || ""}
+              onChange={(e) => setFilterArtist(e.target.value || null)}
+              className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              <option value="">全部歌手</option>
+              {artists.map((artist) => (
+                <option key={artist} value={artist}>
+                  {artist}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* 专辑筛选 */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              专辑
+            </label>
+            <select
+              value={filterAlbum || ""}
+              onChange={(e) => setFilterAlbum(e.target.value || null)}
+              className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              <option value="">全部专辑</option>
+              {albums.map((album) => (
+                <option key={album} value={album}>
+                  {album}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* 结果计数 */}
+        <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+          找到 {filteredSongs.length} 首歌曲
+        </div>
       </div>
 
-      {/* Playlists Tab */}
-      {activeTab === "playlists" && (
-        <div className="space-y-6">
-          {playlists.map((playlist, index) => (
-            <div key={index}>
-              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-                {playlist.name}
-              </h3>
-              <div className="space-y-3">
-                {playlist.songs.map((song, songIndex) => (
-                  <div
-                    key={songIndex}
-                    className="flex items-center justify-between gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <a
-                        href={song.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-900 dark:text-white font-semibold hover:text-purple-600 dark:hover:text-purple-400 break-words"
-                      >
-                        {song.name}
-                      </a>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        {song.artist} · {song.genre}
-                      </p>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-2 flex-shrink-0">
-                      <button
-                        onClick={() =>
-                          setSelectedSong({
-                            name: song.name,
-                            artist: song.artist,
-                            lyrics: song.lyrics,
-                          })
-                        }
-                        className="px-3 py-1 rounded text-sm font-medium bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
-                        title="显示歌词"
-                      >
-                        歌词
-                      </button>
-                      <CopyButton text={song.name} label="复制" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Animes Tab */}
-      {activeTab === "animes" && (
+      {/* 歌曲列表 */}
+      {filteredSongs.length > 0 ? (
         <div className="space-y-3">
-          {animes.map((anime, index) => (
-            <a
-              key={index}
-              href={anime.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+          {filteredSongs.map((song, songIndex) => (
+            <div
+              key={`${song.playlistName}-${songIndex}`}
+              className="flex items-center justify-between gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
               <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 break-words">
-                  {anime.name}
-                </h4>
+                <a
+                  href={song.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-900 dark:text-white font-semibold hover:text-purple-600 dark:hover:text-purple-400 break-words"
+                >
+                  {song.name}
+                </a>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  {anime.episodes} 话 · 状态: {anime.status}
+                  {song.artist} · {song.genre} · {song.language}
                 </p>
+                {song.tag && (
+                  <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">
+                    标签: {song.tag} {song.album && `| 专辑: ${song.album}`}
+                  </p>
+                )}
               </div>
 
               {/* Action Buttons */}
               <div className="flex gap-2 flex-shrink-0">
-                <CopyButton text={anime.name} label="复制" />
+                <button
+                  onClick={() =>
+                    setSelectedSong({
+                      name: song.name,
+                      artist: song.artist,
+                      lyrics: song.lyrics,
+                    })
+                  }
+                  className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-lg transition-colors"
+                >
+                  歌词
+                </button>
+                <CopyButton text={song.name} label="复制" />
               </div>
-            </a>
+            </div>
           ))}
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-gray-600 dark:text-gray-400">
+            没有找到匹配的歌曲 😅
+          </p>
         </div>
       )}
 
       {/* Lyrics Modal */}
       {selectedSong && (
         <LyricsModal
-          songName={selectedSong.name}
-          artist={selectedSong.artist}
-          lyrics={selectedSong.lyrics}
-          isOpen={!!selectedSong}
+          song={selectedSong}
           onClose={() => setSelectedSong(null)}
         />
       )}

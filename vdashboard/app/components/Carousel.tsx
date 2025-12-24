@@ -26,6 +26,7 @@ export function Carousel({ streamers }: CarouselProps) {
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
     setIsAutoPlay(false);
+    setTimeout(() => setIsAutoPlay(true), 6000);
   };
 
   const goToPrevious = () => {
@@ -33,40 +34,66 @@ export function Carousel({ streamers }: CarouselProps) {
       (prev) => (prev - 1 + streamers.length) % streamers.length
     );
     setIsAutoPlay(false);
+    setTimeout(() => setIsAutoPlay(true), 6000);
   };
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % streamers.length);
     setIsAutoPlay(false);
+    setTimeout(() => setIsAutoPlay(true), 6000);
   };
 
   const currentStreamer = streamers[currentIndex];
 
   return (
     <div
-      className="relative w-full h-96 md:h-[500px] bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden group"
+      className="relative w-full h-96 md:h-500 bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden group"
       onMouseEnter={() => setIsAutoPlay(false)}
       onMouseLeave={() => setIsAutoPlay(true)}
     >
       {/* Images */}
-      {streamers.map((streamer, index) => (
-        <Link
-          href={`/streamer/${streamer.id}`}
-          key={streamer.id}
-          className="absolute inset-0 cursor-pointer"
-          style={{
-            opacity: index === currentIndex ? 1 : 0,
-            transition: "opacity 0.5s ease-in-out",
-          }}
-        >
-          <div className="relative w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white text-xl font-bold">
-            {streamer.banner}
-            <span className="absolute bottom-6 left-6 text-2xl font-bold drop-shadow-lg">
-              {streamer.name}
-            </span>
-          </div>
-        </Link>
-      ))}
+      {streamers.map((streamer, index) => {
+        const link = streamer.carouselUrl || `/streamer/${streamer.id}`;
+        const isExternal = link.startsWith('http');
+        
+        return isExternal ? (
+          <a
+            href={link}
+            key={streamer.id}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 cursor-pointer"
+            style={{
+              opacity: index === currentIndex ? 1 : 0,
+              transition: "opacity 0.5s ease-in-out",
+            }}
+          >
+            <div className="relative w-full h-full bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white text-xl font-bold">
+              {streamer.banner}
+              <span className="absolute bottom-6 left-6 text-2xl font-bold drop-shadow-lg">
+                {streamer.name}
+              </span>
+            </div>
+          </a>
+        ) : (
+          <Link
+            href={link}
+            key={streamer.id}
+            className="absolute inset-0 cursor-pointer"
+            style={{
+              opacity: index === currentIndex ? 1 : 0,
+              transition: "opacity 0.5s ease-in-out",
+            }}
+          >
+            <div className="relative w-full h-full bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white text-xl font-bold">
+              {streamer.banner}
+              <span className="absolute bottom-6 left-6 text-2xl font-bold drop-shadow-lg">
+                {streamer.name}
+              </span>
+            </div>
+          </Link>
+        );
+      })}
 
       {/* Previous Button */}
       <button
@@ -107,7 +134,7 @@ export function Carousel({ streamers }: CarouselProps) {
       </div>
 
       {/* Info Panel */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 z-10">
+      <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-6 z-10">
         <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
           {currentStreamer.name}
         </h3>
@@ -116,7 +143,7 @@ export function Carousel({ streamers }: CarouselProps) {
         </p>
         <Link
           href={`/streamer/${currentStreamer.id}`}
-          className="mt-4 inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-shadow w-fit"
+          className="mt-4 inline-block bg-linear-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-shadow w-fit"
         >
           查看详情 →
         </Link>

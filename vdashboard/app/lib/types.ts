@@ -4,6 +4,9 @@ export interface Song {
   genre: string;
   lyrics: string;
   url: string;
+  tag?: string;        // 新增：标签/分类
+  language?: string;   // 新增：语言/语种
+  album?: string;      // 新增：专辑
 }
 
 export interface Playlist {
@@ -28,10 +31,26 @@ export interface Streamer {
   bio: string;
   description: string;
   fans: string;
+  carouselUrl?: string;  // 新增：轮播点击链接
+  cloudMusicUrl?: string; // 新增：网易云音乐主页链接
+  redUrl?: string;       // 新增：小红书主页链接
   playlists: Playlist[];
   animes: Anime[];
 }
 
+
+export interface Video {
+  title: string;
+  cover: string;
+  videoUrl: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  description?: string;
+}
+
 export interface StreamersData {
   streamers: Streamer[];
+  videos?: Video[];
 }

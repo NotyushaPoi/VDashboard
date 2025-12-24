@@ -3,22 +3,36 @@
 import { useEffect } from "react";
 
 interface LyricsModalProps {
-  songName: string;
-  artist: string;
-  lyrics: string;
-  isOpen: boolean;
+  song?: {
+    name: string;
+    artist: string;
+    lyrics: string;
+  };
+  songName?: string;
+  artist?: string;
+  lyrics?: string;
+  isOpen?: boolean;
   onClose: () => void;
 }
 
 export function LyricsModal({
-  songName,
-  artist,
-  lyrics,
+  song,
+  songName: propSongName,
+  artist: propArtist,
+  lyrics: propLyrics,
   isOpen,
   onClose,
 }: LyricsModalProps) {
+  // 支持两种方式：song 对象或单个属性
+  const name = song?.name || propSongName || "";
+  const artist = song?.artist || propArtist || "";
+  const lyrics = song?.lyrics || propLyrics || "";
+  
+  // 如果传递了 song 对象，自动显示（不需要 isOpen）
+  const shouldShow = song ? true : isOpen;
+
   useEffect(() => {
-    if (isOpen) {
+    if (shouldShow) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -27,9 +41,9 @@ export function LyricsModal({
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen]);
+  }, [shouldShow]);
 
-  if (!isOpen) return null;
+  if (!shouldShow) return null;
 
   return (
     <div
@@ -44,7 +58,7 @@ export function LyricsModal({
         <div className="flex justify-between items-start p-6 border-b border-gray-200 dark:border-gray-700">
           <div className="flex-1">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-              {songName}
+              {name}
             </h2>
             <p className="text-gray-600 dark:text-gray-400">{artist}</p>
           </div>

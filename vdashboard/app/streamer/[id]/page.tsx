@@ -42,24 +42,47 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
     notFound();
   }
 
+  const biliBiliSpaceUrl = `https://space.bilibili.com/${streamer.bilibiliId}`;
+  const biliBiliLiveUrl = `https://live.bilibili.com/${streamer.bilibiliId}`;
+
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      {/* Banner */}
+      {/* Banner with Split Buttons */}
       <div className="relative w-full h-80 md:h-96 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center overflow-hidden">
-        {/* Banner Content Placeholder */}
         <div className="absolute inset-0 bg-black/0" />
+        
+        {/* Left Button - B站主页 */}
         <a
-          href={streamer.liveUrl}
+          href={biliBiliSpaceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative z-10 text-white text-center"
+          className="absolute left-0 top-0 w-1/2 h-full flex items-center justify-center bg-black/0 hover:bg-black/20 transition-colors group cursor-pointer z-10"
+          title="进入B站主页"
         >
+          <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="text-4xl mb-2">👤</div>
+            <p className="text-white font-bold">B站主页</p>
+          </div>
+        </a>
+
+        {/* Center Content */}
+        <div className="relative z-5 text-white text-center pointer-events-none">
           <div className="text-6xl font-bold mb-4">🎬</div>
           <h1 className="text-4xl md:text-5xl font-bold mb-2">{streamer.name}</h1>
-          <p className="text-lg text-white/90 mb-6">点击进入直播间</p>
-          <button className="px-8 py-3 bg-white text-purple-600 font-bold rounded-lg hover:shadow-lg transition-shadow">
-            进入直播 →
-          </button>
+        </div>
+
+        {/* Right Button - 直播间 */}
+        <a
+          href={biliBiliLiveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-0 top-0 w-1/2 h-full flex items-center justify-center bg-black/0 hover:bg-black/20 transition-colors group cursor-pointer z-10"
+          title="进入直播间"
+        >
+          <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="text-4xl mb-2">📡</div>
+            <p className="text-white font-bold">进入直播</p>
+          </div>
         </a>
       </div>
 
@@ -82,9 +105,6 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
               </h2>
               <div className="flex gap-4 mb-4 text-sm">
                 <span className="text-gray-600 dark:text-gray-400">
-                  👥 粉丝: {streamer.fans}
-                </span>
-                <span className="text-gray-600 dark:text-gray-400">
                   UID: {streamer.bilibiliId}
                 </span>
               </div>
@@ -95,19 +115,47 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
                 {streamer.description}
               </p>
 
-              {/* Action Buttons */}
-              <div className="flex gap-3 flex-wrap">
+              {/* 新按钮顺序：B站主页、直播间、网易云、小红书、返回首页 */}
+              <div className="flex gap-3 flex-wrap mb-6">
                 <a
-                  href={streamer.liveUrl}
+                  href={biliBiliSpaceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg hover:shadow-lg transition-shadow"
+                  className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors text-sm"
+                  title="访问 B 站主页"
                 >
-                  🎬 进入直播间
+                  📺 B站主页
+                </a>
+                <a
+                  href={biliBiliLiveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors text-sm"
+                  title="进入直播间"
+                >
+                  🎬 直播间
+                </a>
+                <a
+                  href={streamer.cloudMusicUrl || "https://music.163.com"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors text-sm"
+                  title="访问网易云音乐"
+                >
+                  🎵 网易云
+                </a>
+                <a
+                  href={streamer.redUrl || "https://www.xiaohongshu.com"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-lg transition-colors text-sm"
+                  title="访问小红书"
+                >
+                  ❤️ 小红书
                 </a>
                 <Link
                   href="/"
-                  className="px-6 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-bold rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-bold rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm"
                 >
                   ← 返回首页
                 </Link>
@@ -120,7 +168,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
         <hr className="border-gray-200 dark:border-gray-700 my-12" />
 
         {/* Tab Panel */}
-        <TabPanel playlists={streamer.playlists} animes={streamer.animes} />
+        <TabPanel playlists={streamer.playlists} />
       </div>
 
       {/* Footer */}
