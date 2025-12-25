@@ -2,38 +2,6 @@ import { Carousel } from "@/app/components/Carousel";
 import Link from "next/link";
 import { getStreamersData } from "@/app/lib/utils";
 
-interface VideoDisplayProps {
-  videos: Array<{
-    title: string;
-    cover: string;
-    videoUrl: string;
-  }>;
-}
-
-function VideoDisplay({ videos }: VideoDisplayProps) {
-  return (
-    <div className="w-full max-w-3xl mx-auto">
-      <a
-        href={videos[0]?.videoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative block w-full aspect-video rounded-2xl overflow-hidden shadow-lg group"
-      >
-        <div className="absolute inset-0 bg-linear-to-br from-purple-400 via-pink-400 to-purple-500 flex items-center justify-center">
-          <img
-            src={videos[0]?.cover}
-            alt={videos[0]?.title}
-            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-        <div className="absolute left-4 bottom-4 bg-black/70 text-white text-base px-4 py-2 rounded-lg shadow">
-          {videos[0]?.title}
-        </div>
-      </a>
-    </div>
-  );
-}
-
 export const revalidate = 60;
 
 export default async function Home() {
@@ -41,14 +9,14 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-linear-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
-      {/* Hero Section with 投稿视频轮播 */}
+      {/* Hero Section with Carousel */}
       <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
               <span className="bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                🌿春和音-Harumonie🌿
+                春和音-Harumonie
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -56,14 +24,14 @@ export default async function Home() {
             </p>
           </div>
 
-          {/* 投稿视频图片展示 */}
+          {/* Carousel */}
           {videos && videos.length > 0 && (
             <div className="mb-16">
-              <VideoDisplay videos={videos} />
+              <Carousel videos={videos} />
             </div>
           )}
 
-          {/* 成员一览 */}
+          {/* Members Grid */}
           <div>
             <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
               🌟 成员一览
@@ -85,7 +53,7 @@ export default async function Home() {
 
                   {/* Card Content */}
                   <div className="p-4">
-                    {/* Avatar Placeholder */}
+                    {/* Avatar */}
                     <div className="flex items-center gap-4 mb-3">
                       <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-300 to-pink-300 flex items-center justify-center text-white font-bold shrink-0">
                         {streamer.name.charAt(0)}
@@ -104,7 +72,8 @@ export default async function Home() {
 
                     {/* Stats */}
                     <div className="flex gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
-                      <span>🎵 {streamer.playlists.length} 个歌单</span>
+                      <span>🎵 {streamer.playlistCount ?? 0} 个歌单</span>
+                      <span>🎶 {streamer.songCount ?? 0} 首歌曲</span>
                     </div>
 
                     {/* Button */}

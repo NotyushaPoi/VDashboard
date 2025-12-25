@@ -1,0 +1,210 @@
+{
+  "id": 3,
+  "name": "恰恰恰蘑菇",
+  "bilibiliId": "399491783",
+  "liveUrl": "https://live.bilibili.com/",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/399491783",
+  "cloudMusicUrl": "https://music.163.com",
+  "redUrl": "https://www.xiaohongshu.com",
+  "avatar": "/images/streamers/placeholder.jpg",
+  "banner": "/images/streamers/placeholder-banner.jpg",
+  "bio": "待补充...",
+  "description": "固定每周二四晚8直播 粉丝群：657843157（会有抽奖） 梦想成为爱抖露和闪耀舞台！",
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "卡路里",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "欢快",
+          "language": "中文",
+          "album": "怪物",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song601"
+        },
+        {
+          "name": "沙漠骆驼",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "欢快",
+          "language": "中文",
+          "album": "末日彩虹",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song602"
+        },
+        {
+          "name": "带你去旅行",
+          "artist": "朴树",
+          "genre": "流行",
+          "tag": "欢快",
+          "language": "中文",
+          "album": "好好地",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song603"
+        },
+        {
+          "name": "我的新衣",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "欢快",
+          "language": "中文",
+          "album": "怪物",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song604"
+        },
+        {
+          "name": "周末夜的派对",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "欢快",
+          "language": "中文",
+          "album": "怪物",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song605"
+        },
+        {
+          "name": "Roar",
+          "artist": "Katy Perry",
+          "genre": "英语",
+          "tag": "欢快",
+          "language": "英语",
+          "album": "Teenage Dream",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song606"
+        }
+      ]
+    },
+    {
+      "name": "欢快摇滚",
+      "songs": [
+        {
+          "name": "Crazy on You",
+          "artist": "Heart",
+          "genre": "摇滚",
+          "tag": "摇滚",
+          "language": "英语",
+          "album": "Little Queen",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song701"
+        },
+        {
+          "name": "We Will Rock You",
+          "artist": "Queen",
+          "genre": "摇滚",
+          "tag": "摇滚",
+          "language": "英语",
+          "album": "News of the World",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song702"
+        },
+        {
+          "name": "Back in Black",
+          "artist": "AC/DC",
+          "genre": "摇滚",
+          "tag": "摇滚",
+          "language": "英语",
+          "album": "Back in Black",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song703"
+        },
+        {
+          "name": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "genre": "摇滚",
+          "tag": "摇滚",
+          "language": "英语",
+          "album": "A Night at the Opera",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song704"
+        },
+        {
+          "name": "Enter Sandman",
+          "artist": "Metallica",
+          "genre": "摇滚",
+          "tag": "摇滚",
+          "language": "英语",
+          "album": "The Black Album",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song705"
+        },
+        {
+          "name": "Welcome to the Machine",
+          "artist": "Pink Floyd",
+          "genre": "摇滚",
+          "tag": "摇滚",
+          "language": "英语",
+          "album": "Wish You Were Here",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song706"
+        }
+      ]
+    },
+    {
+      "name": "舞曲Remix",
+      "songs": [
+        {
+          "name": "Turn Down For What",
+          "artist": "DJ Snake",
+          "genre": "电子",
+          "tag": "舞曲",
+          "language": "英语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song801"
+        },
+        {
+          "name": "One Kiss",
+          "artist": "Calvin Harris",
+          "genre": "电子",
+          "tag": "舞曲",
+          "language": "英语",
+          "album": "Funk Wav Bounces Vol 1",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song802"
+        },
+        {
+          "name": "Titanium",
+          "artist": "David Guetta",
+          "genre": "电子",
+          "tag": "舞曲",
+          "language": "英语",
+          "album": "Nothing but the Beat",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song803"
+        },
+        {
+          "name": "Lean On",
+          "artist": "Major Lazer",
+          "genre": "电子",
+          "tag": "舞曲",
+          "language": "英语",
+          "album": "Peace Is The Mission",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song804"
+        },
+        {
+          "name": "This Girl",
+          "artist": "Kungs",
+          "genre": "电子",
+          "tag": "舞曲",
+          "language": "英语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song805"
+        },
+        {
+          "name": "Animals",
+          "artist": "Martin Garrix",
+          "genre": "电子",
+          "tag": "舞曲",
+          "language": "英语",
+          "album": "Animals",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song806"
+        }
+      ]
+    }
+  ]
+}

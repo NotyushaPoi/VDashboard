@@ -1,0 +1,210 @@
+{
+  "id": 2,
+  "name": "Yvaine可可",
+  "bilibiliId": "9638159",
+  "liveUrl": "https://live.bilibili.com/",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/9638159",
+  "cloudMusicUrl": "https://music.163.com",
+  "redUrl": "https://www.xiaohongshu.com",
+  "avatar": "/images/streamers/placeholder.jpg",
+  "banner": "/images/streamers/placeholder-banner.jpg",
+  "bio": "待补充...",
+  "description": "不务正业的「曲师」 爱好唱点小歌 合作请私信，作品归档见收藏夹 群：470408924",
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "告白气球",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "甜蜜",
+          "language": "中文",
+          "album": "Mappa Mundi",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song301"
+        },
+        {
+          "name": "渐渐（有点甜）",
+          "artist": "许靖韵",
+          "genre": "流行",
+          "tag": "甜蜜",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song302"
+        },
+        {
+          "name": "春风十里",
+          "artist": "鹿晗",
+          "genre": "流行",
+          "tag": "甜蜜",
+          "language": "中文",
+          "album": "Minding You",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song303"
+        },
+        {
+          "name": "夜曲",
+          "artist": "周杰伦",
+          "genre": "流行",
+          "tag": "爵士",
+          "language": "中文",
+          "album": "依然范特西",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song304"
+        },
+        {
+          "name": "夜上海",
+          "artist": "黄鹂莺",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song305"
+        },
+        {
+          "name": "Scarborough Fair",
+          "artist": "Simon & Garfunkel",
+          "genre": "民谣",
+          "tag": "民谣",
+          "language": "英语",
+          "album": "Parsley Sage Rosemary Thyme",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song306"
+        }
+      ]
+    },
+    {
+      "name": "夜间治愈",
+      "songs": [
+        {
+          "name": "夜曲·如歌",
+          "artist": "许嵩",
+          "genre": "流行",
+          "tag": "治愈",
+          "language": "中文",
+          "album": "白色城堡",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song401"
+        },
+        {
+          "name": "月亮之上",
+          "artist": "凤凰传奇",
+          "genre": "流行",
+          "tag": "治愈",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song402"
+        },
+        {
+          "name": "人生如梦",
+          "artist": "李健",
+          "genre": "流行",
+          "tag": "抒情",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song403"
+        },
+        {
+          "name": "Time After Time",
+          "artist": "Cyndi Lauper",
+          "genre": "英语",
+          "tag": "抒情",
+          "language": "英语",
+          "album": "Shes So Unusual",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song404"
+        },
+        {
+          "name": "心愿",
+          "artist": "张靓颖",
+          "genre": "流行",
+          "tag": "治愈",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song405"
+        },
+        {
+          "name": "星月神话",
+          "artist": "金莎",
+          "genre": "流行",
+          "tag": "治愈",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song406"
+        }
+      ]
+    },
+    {
+      "name": "K-POP精选",
+      "songs": [
+        {
+          "name": "Spring Day",
+          "artist": "방탄소년단",
+          "genre": "韩语",
+          "tag": "K-pop",
+          "language": "韩语",
+          "album": "YOU NEVER WALK ALONE",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song501"
+        },
+        {
+          "name": "Gods Menu",
+          "artist": "Stray Kids",
+          "genre": "韩语",
+          "tag": "K-pop",
+          "language": "韩语",
+          "album": "GO生",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song502"
+        },
+        {
+          "name": "Dynamite",
+          "artist": "방탄소년단",
+          "genre": "英语",
+          "tag": "K-pop",
+          "language": "英语",
+          "album": "BE",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song503"
+        },
+        {
+          "name": "Butter",
+          "artist": "방탄소년단",
+          "genre": "英语",
+          "tag": "K-pop",
+          "language": "英语",
+          "album": "Butter",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song504"
+        },
+        {
+          "name": "How You Like That",
+          "artist": "BLACKPINK",
+          "genre": "韩语",
+          "tag": "K-pop",
+          "language": "韩语",
+          "album": "THE ALBUM",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song505"
+        },
+        {
+          "name": "Gangnam Style",
+          "artist": "싸이",
+          "genre": "韩语",
+          "tag": "K-pop",
+          "language": "韩语",
+          "album": "PSY 6 SIX PART 1",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song506"
+        }
+      ]
+    }
+  ]
+}

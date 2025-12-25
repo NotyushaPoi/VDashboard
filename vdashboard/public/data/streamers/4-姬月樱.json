@@ -1,0 +1,210 @@
+{
+  "id": 4,
+  "name": "姬月樱",
+  "bilibiliId": "5744398",
+  "liveUrl": "https://live.bilibili.com/",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/5744398",
+  "cloudMusicUrl": "https://music.163.com",
+  "redUrl": "https://www.xiaohongshu.com",
+  "avatar": "/images/streamers/placeholder.jpg",
+  "banner": "/images/streamers/placeholder-banner.jpg",
+  "bio": "待补充...",
+  "description": ".:*✿ʚ个人势花之妖精ɞ✿*ﾟFF14占星丨缪水虹星莲鸟丨音击舞萌中二丨聊天粉丝群1022560083",
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "长歌行",
+          "artist": "陈伟霆",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song901"
+        },
+        {
+          "name": "琵琶行",
+          "artist": "许嵩",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "白色城堡",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song902"
+        },
+        {
+          "name": "清明上河图",
+          "artist": "许嵩",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "白色城堡",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song903"
+        },
+        {
+          "name": "牡丹亭·还魂",
+          "artist": "许嵩",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "白色城堡",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song904"
+        },
+        {
+          "name": "银河剑客",
+          "artist": "焦迈奇",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song905"
+        },
+        {
+          "name": "相思",
+          "artist": "许嵩",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "白色城堡",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song906"
+        }
+      ]
+    },
+    {
+      "name": "古典雅乐",
+      "songs": [
+        {
+          "name": "高山流水",
+          "artist": "古琴演奏",
+          "genre": "古典",
+          "tag": "古风",
+          "language": "中文",
+          "album": "琴曲合集",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1001"
+        },
+        {
+          "name": "平沙落雁",
+          "artist": "古琴演奏",
+          "genre": "古典",
+          "tag": "古风",
+          "language": "中文",
+          "album": "琴曲合集",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1002"
+        },
+        {
+          "name": "梅花三弄",
+          "artist": "古琴演奏",
+          "genre": "古典",
+          "tag": "古风",
+          "language": "中文",
+          "album": "琴曲合集",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1003"
+        },
+        {
+          "name": "广陵散",
+          "artist": "古琴演奏",
+          "genre": "古典",
+          "tag": "古风",
+          "language": "中文",
+          "album": "琴曲合集",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1004"
+        },
+        {
+          "name": "渔樵问答",
+          "artist": "古琴演奏",
+          "genre": "古典",
+          "tag": "古风",
+          "language": "中文",
+          "album": "琴曲合集",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1005"
+        },
+        {
+          "name": "阳关三叠",
+          "artist": "古琴演奏",
+          "genre": "古典",
+          "tag": "古风",
+          "language": "中文",
+          "album": "琴曲合集",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1006"
+        }
+      ]
+    },
+    {
+      "name": "民族风情",
+      "songs": [
+        {
+          "name": "茉莉花",
+          "artist": "民族音乐",
+          "genre": "民族",
+          "tag": "古风",
+          "language": "中文",
+          "album": "民族经典",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1101"
+        },
+        {
+          "name": "十面埋伏",
+          "artist": "琵琶演奏",
+          "genre": "民族",
+          "tag": "古风",
+          "language": "中文",
+          "album": "琵琶经典",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1102"
+        },
+        {
+          "name": "春江花月夜",
+          "artist": "民族音乐",
+          "genre": "民族",
+          "tag": "古风",
+          "language": "中文",
+          "album": "民族经典",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1103"
+        },
+        {
+          "name": "汉宫秋月",
+          "artist": "民族音乐",
+          "genre": "民族",
+          "tag": "古风",
+          "language": "中文",
+          "album": "民族经典",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1104"
+        },
+        {
+          "name": "笑傲江湖",
+          "artist": "许嵩",
+          "genre": "民族",
+          "tag": "古风",
+          "language": "中文",
+          "album": "白色城堡",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1105"
+        },
+        {
+          "name": "天下",
+          "artist": "许嵩",
+          "genre": "民族",
+          "tag": "古风",
+          "language": "中文",
+          "album": "白色城堡",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1106"
+        }
+      ]
+    }
+  ]
+}

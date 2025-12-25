@@ -10,11 +10,11 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">VD</span>
+            <div className="w-8 h-8 flex items-center justify-center">
+              <span className="text-2xl">🎵</span>
             </div>
             <span className="font-bold text-lg text-gray-900 dark:text-white hidden sm:inline">
-              VDashboard
+              春和音
             </span>
           </Link>
 

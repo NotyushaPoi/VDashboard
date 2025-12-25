@@ -5,9 +5,10 @@ import { useState } from "react";
 interface CopyButtonProps {
   text: string;
   label?: string;
+  isJukeboxCommand?: boolean;
 }
 
-export function CopyButton({ text, label = "复制" }: CopyButtonProps) {
+export function CopyButton({ text, label = "复制", isJukeboxCommand = false }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async (e: React.MouseEvent) => {
@@ -15,7 +16,8 @@ export function CopyButton({ text, label = "复制" }: CopyButtonProps) {
     e.stopPropagation();
 
     try {
-      await navigator.clipboard.writeText(text);
+      const textToCopy = isJukeboxCommand ? `点歌 ${text}` : text;
+      await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {

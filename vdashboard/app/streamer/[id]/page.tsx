@@ -168,7 +168,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
         <hr className="border-gray-200 dark:border-gray-700 my-12" />
 
         {/* Tab Panel */}
-        <TabPanel playlists={streamer.playlists} />
+        <TabPanel playlists={streamer.playlists || []} />
       </div>
 
       {/* Footer */}

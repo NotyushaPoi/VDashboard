@@ -17,70 +17,187 @@ pnpm dev
 
 ## 项目架构
 
-### 核心层次
+### 数据层次架构（Plan 4：混合索引）
+
+VDashboard 采用**两层混合数据架构**以支持大规模扩展：
 
 ```
-Page (展示层)
-  ↓
-Component (组件层) 
-  ↓
-Utils + Types (逻辑层)
-  ↓
-Data (数据层)
+Layer 1 - 索引层 (Lightweight Index)
+├─ 文件: public/data/streamers.json (~2KB)
+├─ 用途: 主页快速加载
+├─ 包含: ID、名称、头像、粉丝数、歌单数、歌曲数
+└─ 加载: 服务端渲染主页时
+
+Layer 2 - 详情层 (Detail Files)
+├─ 目录: public/data/streamers/
+├─ 文件: 1-名字.json, 2-名字.json ... (每个100-200行)
+├─ 用途: 子页面完整展示，懒加载
+├─ 包含: 完整主播资料、所有歌单、歌词、番剧列表
+└─ 加载: 用户进入 /streamer/[id] 时
+```
+
+### 核心层次（代码执行流）
+
+```
+Page 层 (展示)
+  ├─ app/page.tsx (主页，使用索引层)
+  └─ app/streamer/[id]/page.tsx (子页面，使用详情层)
+    ↓
+Component 层 (组件)
+  ├─ Carousel (轮播主播)
+  ├─ TabPanel (歌单/番剧选项卡)
+  └─ LyricsModal (歌词弹窗)
+    ↓
+Utils + Types 层 (逻辑)
+  ├─ getStreamersIndex() - 获取索引数据
+  ├─ getStreamerById(id) - 获取主播详情（带缓存）
+  └─ types.ts - 类型定义
+    ↓
+Data 层 (存储)
+  ├─ public/data/streamers.json (索引)
+  ├─ public/data/streamers/*.json (详情)
+  └─ public/data/videos.json (独立视频)
 ```
 
 ### 数据流
 
-1. **主页** (`page.tsx`)
-   - 调用 `getAllStreamers()` 获取所有主播
-   - 使用 `Carousel` 和网格组件展示
+1. **主页加载**
+   - 调用 `getStreamersIndex()` → 读取 streamers.json (~2KB)
+   - 提取索引数据（id, name, avatar, playlistCount, songCount）
+   - 使用 Carousel 和网格组件展示主播卡片
 
-2. **子页面** (`streamer/[id]/page.tsx`)
-   - 调用 `getStreamerById(id)` 获取特定主播
-   - 使用 `TabPanel` 显示歌单和番剧
+2. **进入主播子页面**
+   - 调用 `getStreamerById(id)` → 从 streamers/[id].json 懒加载完整数据
+   - 结果缓存在内存 Map，避免重复读取
+   - 展示完整主播资料、歌单、番剧列表
 
-3. **数据加载** (`lib/utils.ts`)
-   - 读取 `public/data/streamers.json`
-   - 提供缓存机制（可选）
+3. **缓存机制**
+   - 索引数据：首次加载后内存缓存
+   - 详情数据：`Map<number, Streamer>` 中的 LRU 式缓存
+   - 好处：重复访问无需文件 I/O
 
 ## 常见任务
 
 ### 添加新主播
 
-1. 编辑 `public/data/streamers.json`
-2. 添加新对象到 `streamers` 数组
-3. 确保 `id` 唯一且递增
+两层文件都需要更新：
+
+#### 1️⃣ 第 1 层 - 索引文件 (`public/data/streamers.json`)
+
+添加新主播的元数据条目：
 
 ```json
 {
   "id": 7,
   "name": "新主播名称",
-  "bilibiliId": "xxx",
-  "liveUrl": "https://www.bilibili.com/7",
-  ...
+  "bio": "简短介绍，30 字以内",
+  "avatar": "/images/streamers/avatar.jpg",
+  "fans": "1.2万",
+  "playlistCount": 3,
+  "songCount": 18,
+  "file": "7-新主播名称.json"
 }
 ```
 
-4. 保存并刷新页面（开发模式下自动热重载）
+#### 2️⃣ 第 2 层 - 详情文件 (`public/data/streamers/7-新主播名称.json`)
 
-### 更新歌单
-
-编辑 `public/data/streamers.json` 中对应主播的 `playlists` 字段：
+创建新文件，包含完整信息：
 
 ```json
 {
-  "name": "新歌单",
-  "songs": [
+  "id": 7,
+  "name": "新主播名称",
+  "bilibiliId": "123456",
+  "liveUrl": "https://www.bilibili.com/123456",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/123456",
+  "avatar": "/images/streamers/avatar.jpg",
+  "banner": "/images/streamers/banner.jpg",
+  "bio": "简短介绍",
+  "description": "详细介绍，支持多行内容\n可以包含基本信息和特色亮点",
+  "cloudMusicUrl": "https://music.163.com/user/xxx",
+  "redUrl": "https://www.xiaohongshu.com/user/xxx",
+  "playlists": [
     {
-      "name": "歌曲名",
-      "artist": "艺术家",
-      "genre": "流派",
-      "lyrics": "歌词...",
-      "url": "https://music.url"
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "歌曲名",
+          "artist": "艺术家",
+          "genre": "流派",
+          "tag": "标签",
+          "language": "语言",
+          "album": "专辑",
+          "lyrics": "完整歌词...",
+          "url": "https://music.url"
+        }
+      ]
+    }
+  ],
+  "animes": [
+    {
+      "name": "番剧名",
+      "episodes": 12,
+      "status": "在看",
+      "url": "https://anime.url"
     }
   ]
 }
 ```
+
+**提示**：为了保持 `playlistCount` 和 `songCount` 的准确性，建议：
+- 手动更新这两个字段，或
+- 运行 `scripts/sync-index.py` 自动计算（参见 CUSTOMIZATION.md）
+
+### 更新歌单和番剧
+
+**只修改第 2 层详情文件**（不需更新索引）：
+
+编辑 `public/data/streamers/X-名字.json` 中的 `playlists` 和 `animes` 字段：
+
+```json
+{
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "新歌曲名",
+          "artist": "歌手",
+          "genre": "流派",
+          "tag": "标签",
+          "language": "中文",
+          "album": "专辑",
+          "lyrics": "歌词内容...",
+          "url": "https://music.url"
+        }
+      ]
+    }
+  ],
+  "animes": [
+    {
+      "name": "番剧名",
+      "episodes": 12,
+      "status": "在看",
+      "url": "https://anime.url"
+    }
+  ]
+}
+```
+
+**注意**：
+- 第一个歌单自动作为"点唱曲库"，复制时添加"点歌 "前缀
+- 歌词支持多行（使用 `\n` 换行）
+- 状态值：`"在看" | "已完成" | "计划看"`
+
+### 同步索引统计（可选）
+
+如果手动修改了歌曲数量，可运行自动同步脚本更新索引的统计字段：
+
+```bash
+python3 scripts/sync-index.py
+```
+
+这会自动更新所有主播的 `playlistCount` 和 `songCount`。
 
 ### 修改样式
 

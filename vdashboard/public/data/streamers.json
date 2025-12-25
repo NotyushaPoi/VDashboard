@@ -1,293 +1,58 @@
 {
-  "videos": [
-    {
-      "title": "春日物语 - 合唱投稿",
-      "cover": "/images/streamers/video1-cover.jpg",
-      "videoUrl": "https://www.bilibili.com/video/BV1eC28BtEzr/",
-      "author": {
-        "name": "希罗Kirara",
-        "avatar": "/images/streamers/placeholder.jpg"
-      },
-      "description": "春和音成员合唱的春日物语，温暖上线！"
-    },
-    {
-      "title": "夜的告白 - 独唱",
-      "cover": "/images/streamers/video2-cover.jpg",
-      "videoUrl": "https://www.bilibili.com/video/BV12pUdBREN2",
-      "author": {
-        "name": "Yvaine可可",
-        "avatar": "/images/streamers/placeholder.jpg"
-      },
-      "description": "可可的夜晚独唱，治愈你的心。"
-    },
-    {
-      "title": "樱花飞舞时 - 翻唱",
-      "cover": "/images/streamers/video3-cover.jpg",
-      "videoUrl": "https://www.bilibili.com/video/BV1w9tszhEey",
-      "author": {
-        "name": "姬月樱",
-        "avatar": "/images/streamers/placeholder.jpg"
-      },
-      "description": "樱花季特别投稿，快来感受浪漫氛围！"
-    }
-  ],
   "streamers": [
     {
       "id": 1,
       "name": "希罗Kirara",
-      "bilibiliId": "8230334",
-      "liveUrl": "https://live.bilibili.com/8230334",
-      "carouselUrl": "https://space.bilibili.com/8230334",
-      "cloudMusicUrl": "https://music.163.com",
-      "redUrl": "https://www.xiaohongshu.com",
+      "bio": "待补充...",
       "avatar": "/images/streamers/placeholder.jpg",
-      "banner": "/images/streamers/placeholder-banner.jpg",
-      "bio": "简介占位，待更新...",
-      "description": "这是关于希罗Kirara的详细介绍。",
-      "fans": "加载中...",
-      "playlists": [
-        {
-          "name": "歌单一",
-          "songs": [
-            {
-              "name": "123木头人",
-              "artist": "黑Girl",
-              "genre": "流行",
-              "tag": "摇滚",
-              "language": "中文",
-              "album": "未知",
-              "lyrics": "这是歌词占位\n可以通过API动态获取真实歌词",
-              "url": "https://music.example.com/song1"
-            },
-            {
-              "name": "3月9日",
-              "artist": "Remioromen",
-              "genre": "日语",
-              "tag": "民谣",
-              "language": "日语",
-              "album": "未知",
-              "lyrics": "3月9日の朝\n目覚めた时に君がいた",
-              "url": "https://music.example.com/song2"
-            },
-            {
-              "name": "99次我爱他",
-              "artist": "元若蓝",
-              "genre": "流行",
-              "tag": "抒情",
-              "language": "中文",
-              "album": "未知",
-              "lyrics": "歌词占位",
-              "url": "https://music.example.com/song3"
-            }
-          ]
-        },
-        {
-          "name": "电音精选",
-          "songs": [
-            {
-              "name": "Hacking to the Gate",
-              "artist": "伊藤加奈惠",
-              "genre": "日语",
-              "tag": "电音",
-              "language": "日语",
-              "album": "未知",
-              "lyrics": "歌词占位",
-              "url": "https://music.example.com/song4"
-            }
-          ]
-        }
-      ],
-      "animes": []
+      "file": "streamers/1-希罗Kirara.json",
+      "playlistCount": 3,
+      "songCount": 18
     },
     {
       "id": 2,
       "name": "Yvaine可可",
-      "bilibiliId": "9638159",
-      "liveUrl": "https://live.bilibili.com/9638159",
-      "carouselUrl": "https://space.bilibili.com/9638159",
-      "cloudMusicUrl": "https://music.163.com",
-      "redUrl": "https://www.xiaohongshu.com",
+      "bio": "待补充...",
       "avatar": "/images/streamers/placeholder.jpg",
-      "banner": "/images/streamers/placeholder-banner.jpg",
-      "bio": "简介占位，待更新...",
-      "description": "这是关于Yvaine可可的详细介绍。",
-      "fans": "加载中...",
-      "playlists": [
-        {
-          "name": "治愈系歌单",
-          "songs": [
-            {
-              "name": "First Love",
-              "artist": "宇多田光",
-              "genre": "日语",
-              "tag": "治愈",
-              "language": "日语",
-              "album": "未知",
-              "lyrics": "First Love的歌词",
-              "url": "https://music.example.com/song5"
-            },
-            {
-              "name": "Honey",
-              "artist": "王心凌",
-              "genre": "流行",
-              "tag": "甜蜜",
-              "language": "中文",
-              "album": "未知",
-              "lyrics": "Honey歌词占位",
-              "url": "https://music.example.com/song6"
-            }
-          ]
-        }
-      ],
-      "animes": []
+      "file": "streamers/2-Yvaine可可.json",
+      "playlistCount": 3,
+      "songCount": 18
     },
     {
       "id": 3,
       "name": "恰恰恰蘑菇",
-      "bilibiliId": "399491783",
-      "liveUrl": "https://live.bilibili.com/399491783",
-      "carouselUrl": "https://space.bilibili.com/399491783",
-      "cloudMusicUrl": "https://music.163.com",
-      "redUrl": "https://www.xiaohongshu.com",
+      "bio": "待补充...",
       "avatar": "/images/streamers/placeholder.jpg",
-      "banner": "/images/streamers/placeholder-banner.jpg",
-      "bio": "简介占位，待更新...",
-      "description": "这是关于恰恰恰蘑菇的详细介绍。",
-      "fans": "加载中...",
-      "playlists": [
-        {
-          "name": "K-pop合集",
-          "songs": [
-            {
-              "name": "Gee",
-              "artist": "少女时代",
-              "genre": "韩语",
-              "tag": "K-pop",
-              "language": "韩语",
-              "album": "未知",
-              "lyrics": "Gee歌词占位",
-              "url": "https://music.example.com/song7"
-            },
-            {
-              "name": "Butterfly",
-              "artist": "和田光司",
-              "genre": "日语",
-              "tag": "动画",
-              "language": "日语",
-              "album": "未知",
-              "lyrics": "Butterfly歌词占位",
-              "url": "https://music.example.com/song8"
-            }
-          ]
-        }
-      ],
-      "animes": []
+      "file": "streamers/3-恰恰恰蘑菇.json",
+      "playlistCount": 3,
+      "songCount": 18
     },
     {
       "id": 4,
       "name": "姬月樱",
-      "bilibiliId": "5744398",
-      "liveUrl": "https://live.bilibili.com/5744398",
-      "carouselUrl": "https://space.bilibili.com/5744398",
-      "cloudMusicUrl": "https://music.163.com",
-      "redUrl": "https://www.xiaohongshu.com",
+      "bio": "待补充...",
       "avatar": "/images/streamers/placeholder.jpg",
-      "banner": "/images/streamers/placeholder-banner.jpg",
-      "bio": "简介占位，待更新...",
-      "description": "这是关于姬月樱的详细介绍。",
-      "fans": "加载中...",
-      "playlists": [
-        {
-          "name": "古风歌单",
-          "songs": [
-            {
-              "name": "长歌行",
-              "artist": "陈伟霆",
-              "genre": "流行",
-              "tag": "古风",
-              "language": "中文",
-              "album": "未知",
-              "lyrics": "长歌行歌词占位",
-              "url": "https://music.example.com/song9"
-            }
-          ]
-        }
-      ],
-      "animes": []
+      "file": "streamers/4-姬月樱.json",
+      "playlistCount": 3,
+      "songCount": 18
     },
     {
       "id": 5,
       "name": "悄悄Qoo",
-      "bilibiliId": "1436878388",
-      "liveUrl": "https://live.bilibili.com/1436878388",
-      "carouselUrl": "https://space.bilibili.com/1436878388",
-      "cloudMusicUrl": "https://music.163.com",
-      "redUrl": "https://www.xiaohongshu.com",
+      "bio": "待补充...",
       "avatar": "/images/streamers/placeholder.jpg",
-      "banner": "/images/streamers/placeholder-banner.jpg",
-      "bio": "简介占位，待更新...",
-      "description": "这是关于悄悄Qoo的详细介绍。",
-      "fans": "加载中...",
-      "playlists": [
-        {
-          "name": "摇滚精选",
-          "songs": [
-            {
-              "name": "Brave Heart",
-              "artist": "宫崎步",
-              "genre": "日语",
-              "tag": "摇滚",
-              "language": "日语",
-              "album": "未知",
-              "lyrics": "Brave Heart歌词占位",
-              "url": "https://music.example.com/song10"
-            }
-          ]
-        }
-      ],
-      "animes": []
+      "file": "streamers/5-悄悄Qoo.json",
+      "playlistCount": 3,
+      "songCount": 18
     },
     {
       "id": 6,
       "name": "浅律Asaritsu",
-      "bilibiliId": "6483585",
-      "liveUrl": "https://live.bilibili.com/6483585",
-      "carouselUrl": "https://space.bilibili.com/6483585",
-      "cloudMusicUrl": "https://music.163.com",
-      "redUrl": "https://www.xiaohongshu.com",
+      "bio": "待补充...",
       "avatar": "/images/streamers/placeholder.jpg",
-      "banner": "/images/streamers/placeholder-banner.jpg",
-      "bio": "简介占位，待更新...",
-      "description": "这是关于浅律Asaritsu的详细介绍。",
-      "fans": "加载中...",
-      "playlists": [
-        {
-          "name": "民谣精选",
-          "songs": [
-            {
-              "name": "Friend",
-              "artist": "玉置浩二",
-              "genre": "日语",
-              "tag": "民谣",
-              "language": "日语",
-              "album": "未知",
-              "lyrics": "Friend歌词占位",
-              "url": "https://music.example.com/song11"
-            },
-            {
-              "name": "A Thousand Years",
-              "artist": "Christina Perri",
-              "genre": "英语",
-              "tag": "抒情",
-              "language": "英语",
-              "album": "未知",
-              "lyrics": "A Thousand Years歌词占位",
-              "url": "https://music.example.com/song12"
-            }
-          ]
-        }
-      ],
-      "animes": []
+      "file": "streamers/6-浅律Asaritsu.json",
+      "playlistCount": 3,
+      "songCount": 18
     }
   ]
 }

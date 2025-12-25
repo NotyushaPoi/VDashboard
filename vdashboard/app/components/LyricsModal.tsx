@@ -3,47 +3,21 @@
 import { useEffect } from "react";
 
 interface LyricsModalProps {
-  song?: {
+  song: {
     name: string;
     artist: string;
     lyrics: string;
   };
-  songName?: string;
-  artist?: string;
-  lyrics?: string;
-  isOpen?: boolean;
   onClose: () => void;
 }
 
-export function LyricsModal({
-  song,
-  songName: propSongName,
-  artist: propArtist,
-  lyrics: propLyrics,
-  isOpen,
-  onClose,
-}: LyricsModalProps) {
-  // 支持两种方式：song 对象或单个属性
-  const name = song?.name || propSongName || "";
-  const artist = song?.artist || propArtist || "";
-  const lyrics = song?.lyrics || propLyrics || "";
-  
-  // 如果传递了 song 对象，自动显示（不需要 isOpen）
-  const shouldShow = song ? true : isOpen;
-
+export function LyricsModal({ song, onClose }: LyricsModalProps) {
   useEffect(() => {
-    if (shouldShow) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
+    document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [shouldShow]);
-
-  if (!shouldShow) return null;
+  }, []);
 
   return (
     <div
@@ -58,9 +32,9 @@ export function LyricsModal({
         <div className="flex justify-between items-start p-6 border-b border-gray-200 dark:border-gray-700">
           <div className="flex-1">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-              {name}
+              {song.name}
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">{artist}</p>
+            <p className="text-gray-600 dark:text-gray-400">{song.artist}</p>
           </div>
           <button
             onClick={onClose}
@@ -76,7 +50,7 @@ export function LyricsModal({
         {/* Lyrics Content */}
         <div className="overflow-y-auto flex-1 p-6">
           <div className="whitespace-pre-wrap text-gray-700 dark:text-gray-300 font-mono text-sm leading-relaxed">
-            {lyrics || "暂无歌词..."}
+            {song.lyrics || "暂无歌词..."}
           </div>
         </div>
 
@@ -90,7 +64,7 @@ export function LyricsModal({
           </button>
           <button
             onClick={() => {
-              navigator.clipboard.writeText(lyrics);
+              navigator.clipboard.writeText(song.lyrics);
               alert("歌词已复制到剪贴板");
             }}
             className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"

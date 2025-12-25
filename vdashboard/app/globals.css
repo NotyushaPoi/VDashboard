@@ -5,29 +5,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
-
 html {
   color-scheme: light dark;
 }
 
 html.dark, html[data-theme="dark"] {
   color-scheme: dark;
-  @apply bg-gray-950 text-gray-50;
-}
-
-html:not(.dark):not([data-theme="dark"]) {
-  color-scheme: light;
-  @apply bg-white text-gray-900;
 }
 
 body {
   @apply transition-colors duration-200;
-}
-
-html.dark body, html[data-theme="dark"] body {
-  @apply bg-gray-950 text-gray-50;
-}
-
-html:not(.dark):not([data-theme="dark"]) body {
-  @apply bg-white text-gray-900;
 }

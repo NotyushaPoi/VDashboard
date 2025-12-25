@@ -1,0 +1,210 @@
+{
+  "id": 5,
+  "name": "悄悄Qoo",
+  "bilibiliId": "1436878388",
+  "liveUrl": "https://live.bilibili.com/",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/1436878388",
+  "cloudMusicUrl": "https://music.163.com",
+  "redUrl": "https://www.xiaohongshu.com",
+  "avatar": "/images/streamers/placeholder.jpg",
+  "banner": "/images/streamers/placeholder-banner.jpg",
+  "bio": "待补充...",
+  "description": "成长系陪伴势 会唱一点歌 弹一点尤克里里 有一个小小的音乐梦想~ 非全职 和悄悄D的十年之约进度4/10 感谢喜欢～会一直保持进步的！",
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "Brave Heart",
+          "artist": "宫崎步",
+          "genre": "日语",
+          "tag": "摇滚",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1201"
+        },
+        {
+          "name": "最强のキュート",
+          "artist": "アイドルマスター",
+          "genre": "日语",
+          "tag": "可爱",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1202"
+        },
+        {
+          "name": "恋爱循环",
+          "artist": "鬼頭明里",
+          "genre": "日语",
+          "tag": "可爱",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1203"
+        },
+        {
+          "name": "Kawaii Culture",
+          "artist": "Various Artists",
+          "genre": "日语",
+          "tag": "可爱",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1204"
+        },
+        {
+          "name": "希望之光",
+          "artist": "小野大辅",
+          "genre": "日语",
+          "tag": "热血",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1205"
+        },
+        {
+          "name": "青春时光",
+          "artist": "Various Artists",
+          "genre": "日语",
+          "tag": "青春",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1206"
+        }
+      ]
+    },
+    {
+      "name": "可爱精选",
+      "songs": [
+        {
+          "name": "Kawaii Girl",
+          "artist": "Various Artists",
+          "genre": "日语",
+          "tag": "可爱",
+          "language": "日语",
+          "album": "Kawaii Collection",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1301"
+        },
+        {
+          "name": "Happy Smile",
+          "artist": "Various Artists",
+          "genre": "英语",
+          "tag": "可爱",
+          "language": "英语",
+          "album": "Cheerful Vibes",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1302"
+        },
+        {
+          "name": "甜蜜炸弹",
+          "artist": "Various Artists",
+          "genre": "流行",
+          "tag": "可爱",
+          "language": "中文",
+          "album": "甜蜜时光",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1303"
+        },
+        {
+          "name": "闪闪发光",
+          "artist": "Various Artists",
+          "genre": "流行",
+          "tag": "可爱",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1304"
+        },
+        {
+          "name": "小星星",
+          "artist": "Various Artists",
+          "genre": "流行",
+          "tag": "可爱",
+          "language": "中文",
+          "album": "儿歌精选",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1305"
+        },
+        {
+          "name": "Rainbow Dream",
+          "artist": "Various Artists",
+          "genre": "英语",
+          "tag": "可爱",
+          "language": "英语",
+          "album": "Dream Collection",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1306"
+        }
+      ]
+    },
+    {
+      "name": "热血番歌",
+      "songs": [
+        {
+          "name": "撃て！キャノン",
+          "artist": "アンダリア",
+          "genre": "日语",
+          "tag": "热血",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1401"
+        },
+        {
+          "name": "Challenger!!",
+          "artist": "Various Artists",
+          "genre": "日语",
+          "tag": "热血",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1402"
+        },
+        {
+          "name": "Never Give Up",
+          "artist": "Various Artists",
+          "genre": "英语",
+          "tag": "热血",
+          "language": "英语",
+          "album": "Motivation",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1403"
+        },
+        {
+          "name": "我的青春",
+          "artist": "Various Artists",
+          "genre": "流行",
+          "tag": "热血",
+          "language": "中文",
+          "album": "青春主题",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1404"
+        },
+        {
+          "name": "向前冲",
+          "artist": "Various Artists",
+          "genre": "流行",
+          "tag": "热血",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1405"
+        },
+        {
+          "name": "Stars align",
+          "artist": "Various Artists",
+          "genre": "英语",
+          "tag": "热血",
+          "language": "英语",
+          "album": "Power Anthems",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1406"
+        }
+      ]
+    }
+  ]
+}

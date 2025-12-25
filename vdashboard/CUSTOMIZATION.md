@@ -18,7 +18,7 @@
 
 #### 2. 更新 JSON 数据
 
-编辑 `public/data/streamers.json`，修改主播的 `avatar` 和 `banner` 路径：
+编辑对应的主播文件 `public/data/streamers/X-名字.json`，修改 `avatar` 和 `banner` 路径：
 
 ```json
 {
@@ -92,307 +92,386 @@ public/images/streamers/
 
 修改颜色。
 
-## 📊 集成 B 站实时粉丝数
+## 📊 点唱歌单功能
 
-目前粉丝数显示为"加载中..."，以下是集成真实数据的方案。
+VDashboard 实现了智能的点唱歌单机制：
 
-### 方案 1：Next.js API Routes（推荐 - 纯前端友好）
+- **第一个歌单自动为点唱歌单**：每个主播的 `playlists[0]` 自动作为点唱歌单
+- **智能复制前缀**：当用户点击第一个歌单中的"复制点歌口令"按钮时，复制的文本自动添加"点歌 "前缀
+- **普通歌单保持不变**：其他歌单的复制功能仅复制歌曲名
 
-#### 1. 创建 API 路由
-
-创建文件 `app/api/bilibili-stats/route.ts`：
-
-```typescript
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const uid = searchParams.get("uid");
-
-  if (!uid) {
-    return Response.json({ error: "Missing uid parameter" }, { status: 400 });
-  }
-
-  try {
-    const response = await fetch(
-      `https://api.bilibili.com/x/relation/stat?vmid=${uid}`
-    );
-    const data = await response.json();
-
-    if (data.code === 0) {
-      return Response.json({
-        followers: data.data.follower,
-      });
-    } else {
-      return Response.json(
-        { error: "Failed to fetch from Bilibili" },
-        { status: 500 }
-      );
-    }
-  } catch (error) {
-    console.error("API Error:", error);
-    return Response.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
-  }
-}
-```
-
-#### 2. 创建客户端 Hook
-
-创建文件 `app/lib/hooks.ts`：
-
-```typescript
-"use client";
-
-import { useState, useEffect } from "react";
-
-export function useBilibiliStats(uid: string) {
-  const [followers, setFollowers] = useState<string>("加载中...");
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchStats() {
-      try {
-        const response = await fetch(`/api/bilibili-stats?uid=${uid}`);
-        const data = await response.json();
-
-        if (data.followers !== undefined) {
-          // 格式化粉丝数
-          const count = data.followers;
-          if (count > 10000) {
-            setFollowers(`${(count / 10000).toFixed(1)}万`);
-          } else if (count > 1000) {
-            setFollowers(`${(count / 1000).toFixed(1)}k`);
-          } else {
-            setFollowers(count.toString());
-          }
-        } else {
-          setFollowers("获取失败");
-        }
-      } catch (error) {
-        console.error("Failed to fetch stats:", error);
-        setFollowers("获取失败");
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchStats();
-  }, [uid]);
-
-  return { followers, loading };
-}
-```
-
-#### 3. 在组件中使用
-
-在 `app/streamer/[id]/page.tsx` 中修改：
+这在 `app/streamer/components/TabPanel.tsx` 中实现：
 
 ```tsx
-"use client";  // 添加这一行
-
-import { useBilibiliStats } from "@/app/lib/hooks";
-
-export default function StreamerPage({ params }: StreamerPageProps) {
-  const [streamer, setStreamer] = useState<Streamer | null>(null);
-  const { followers } = useBilibiliStats(streamer?.bilibiliId || "");
-
-  // ... 其他代码 ...
-
-  return (
-    // ... 
-    <p className="text-gray-600 dark:text-gray-400">
-      👥 粉丝: {followers}
-    </p>
-    // ...
-  );
-}
+<CopyButton 
+  text={song.name} 
+  label={selectedTab === 0 ? "复制点歌口令" : "复制"}
+  isJukeboxCommand={selectedTab === 0}
+/>
 ```
 
-**注意**: 这需要将子页面改为客户端组件，可能影响 SEO。
+## 📁 数据文件结构（方案 4：混合索引）
 
-### 方案 2：定时更新 JSON（推荐 - SEO 友好）
+VDashboard 采用**两层数据结构**来实现最优的性能和可维护性：
 
-这是更好的方案，适合定时获取数据。
-
-#### 1. 创建脚本
-
-创建文件 `scripts/update-followers.js`：
-
-```javascript
-const fs = require("fs");
-const path = require("path");
-
-async function updateFollowers() {
-  try {
-    const dataPath = path.join(
-      __dirname,
-      "../public/data/streamers.json"
-    );
-    const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
-
-    for (const streamer of data.streamers) {
-      try {
-        const response = await fetch(
-          `https://api.bilibili.com/x/relation/stat?vmid=${streamer.bilibiliId}`
-        );
-        const result = await response.json();
-
-        if (result.code === 0) {
-          const count = result.data.follower;
-          if (count > 10000) {
-            streamer.fans = `${(count / 10000).toFixed(1)}万`;
-          } else if (count > 1000) {
-            streamer.fans = `${(count / 1000).toFixed(1)}k`;
-          } else {
-            streamer.fans = count.toString();
-          }
-        }
-      } catch (error) {
-        console.error(`Failed to fetch followers for ${streamer.name}:`, error);
-      }
-    }
-
-    fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
-    console.log("Followers updated successfully");
-  } catch (error) {
-    console.error("Failed to update followers:", error);
-  }
-}
-
-updateFollowers();
+```
+public/data/
+├── videos.json                    # 视频数据（独立文件，3 个视频）
+├── streamers.json                 # 索引文件（轻量级，6 个主播的基本信息）
+└── streamers/
+    ├── 1-希罗Kirara.json         # 主播 1 的完整数据（3 个歌单，18 首歌）
+    ├── 2-Yvaine可可.json         # 主播 2 的完整数据（3 个歌单，18 首歌）
+    ├── 3-恰恰恰蘑菇.json         # 主播 3 的完整数据
+    ├── 4-姬月樱.json             # 主播 4 的完整数据
+    ├── 5-悄悄Qoo.json            # 主播 5 的完整数据
+    └── 6-浅律Asaritsu.json       # 主播 6 的完整数据
 ```
 
-#### 2. 添加到 package.json scripts
+### 为什么采用两层结构？
 
-编辑 `package.json`：
+| 方面 | 好处 |
+|------|------|
+| **性能** | 主页只加载轻量级索引（~2KB），详情页才加载完整数据 |
+| **可维护性** | 每个文件 100-200 行，编辑简洁 |
+| **多人协作** | 不同主播的数据在不同文件，几乎无冲突 |
+| **扩展性** | 轻松支持数百个主播，无需重构 |
+| **灵活性** | 可独立更新某主播的数据，不影响其他主播 |
 
-```json
-{
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "update-followers": "node scripts/update-followers.js"
-  }
-}
-```
+---
 
-#### 3. 手动运行
+## 🔄 维护两层数据的完整步骤
 
-```bash
-pnpm update-followers
-```
+### 场景 1：更新已有主播的歌单（最常见）
 
-或使用 Cron 定时任务（在服务器上）：
+假设你要为主播 1（希罗 Kirara）添加一首新歌。
 
-```bash
-# 每天凌晨2点更新粉丝数
-0 2 * * * cd /path/to/vdashboard && pnpm update-followers
-```
+**步骤：**
 
-### 方案 3：GitHub Actions 自动更新（最专业）
-
-创建文件 `.github/workflows/update-followers.yml`：
-
-```yaml
-name: Update Followers
-
-on:
-  schedule:
-    # UTC时间 1AM = 北京时间 9AM
-    - cron: "0 1 * * *"
-  workflow_dispatch:
-
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 10
-      
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-          cache: "pnpm"
-      
-      - name: Update followers
-        run: pnpm update-followers
-      
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add public/data/streamers.json
-          git commit -m "chore: update followers" || exit 0
-      
-      - name: Push changes
-        run: git push
-```
-
-这样每天会自动更新粉丝数并推送到 GitHub！
-
-## 🔗 添加歌词来源
-
-目前歌词是硬编码在 JSON 中的。要从第三方 API 获取歌词：
-
-### 使用网易云 API
-
-在 `lib/utils.ts` 中添加：
-
-```typescript
-export async function fetchLyricsFromNetEase(
-  songName: string,
-  artist: string
-): Promise<string> {
-  // 这是示例，实际需要调用网易云 API
-  // 或其他歌词服务
-  return "歌词内容";
-}
-```
-
-然后在显示歌词时调用。
-
-## 📝 完整的数据维护工作流
-
-### 每周维护
-
-1. **检查数据完整性**
+1. **编辑主播详细数据文件**
    ```bash
-   pnpm build  # 检查构建是否成功
+   编辑：public/data/streamers/1-希罗Kirara.json
    ```
 
-2. **更新主播信息**
-   - 编辑 `public/data/streamers.json`
-   - 修改简介、歌单、番剧等
+2. **在歌单中添加歌曲**
+   ```json
+   {
+     "id": 1,
+     "name": "希罗Kirara",
+     "bio": "温柔治愈的女性Vtuber",
+     "avatar": "/images/streamers/placeholder.jpg",
+     ...
+     "playlists": [
+       {
+         "name": "点唱曲库",
+         "songs": [
+           // 现有歌曲...
+           {
+             "name": "新歌曲名",
+             "artist": "艺术家",
+             "genre": "流派",
+             "tag": "标签",
+             "language": "中文",
+             "album": "专辑",
+             "lyrics": "歌词内容",
+             "url": "https://music.url"
+           }
+         ]
+       }
+     ]
+   }
+   ```
 
-3. **提交更改**
+3. **保存并测试**
    ```bash
-   git add public/data/streamers.json
-   git commit -m "update: 更新XXX主播的信息"
+   # 开发环境中自动热重载（无需重启）
+   pnpm dev
+   # 浏览器中访问该主播的详情页验证
+   ```
+
+4. **❌ 无需更新索引文件 `streamers.json`** ⚠️
+   - 索引文件中 `playlistCount` 和 `songCount` 是**可选的**
+   - 仅用于前端展示，不影响功能
+   - 如果需要精确计数，见下面的"更新索引"步骤
+
+5. **提交 Git**
+   ```bash
+   git add public/data/streamers/1-希罗Kirara.json
+   git commit -m "feat: 为希罗Kirara添加新歌曲"
    git push
    ```
 
-### 定期任务
+---
 
-- ✅ 每日：自动更新粉丝数（使用方案 2 或 3）
-- ✅ 每周：检查外链是否有效
-- ✅ 每月：检查图片是否完整显示
+### 场景 2：添加新主播（较复杂）
+
+假设你要添加主播 7。
+
+**步骤：**
+
+1. **创建新主播文件**
+   ```bash
+   创建：public/data/streamers/7-新主播名.json
+   ```
+
+2. **填写完整数据**
+   ```json
+   {
+     "id": 7,
+     "name": "新主播名",
+     "bio": "简短自我介绍",
+     "avatar": "/images/streamers/new-avatar.jpg",
+     "banner": "/images/streamers/new-banner.jpg",
+     "bilibiliId": "新的B站UID",
+     "liveUrl": "https://live.bilibili.com/新UID",
+     "bilibiliSpaceUrl": "https://space.bilibili.com/新UID",
+     "description": "详细介绍",
+     "cloudMusicUrl": "https://music.163.com/user/xxx",
+     "redUrl": "https://www.xiaohongshu.com/user/xxx",
+     "playlists": [
+       {
+         "name": "点唱曲库",
+         "songs": []  // 可以先为空，后续添加
+       }
+     ]
+   }
+   ```
+
+3. **更新索引文件（必须！）**
+   编辑 `public/data/streamers.json`，添加新条目：
+   
+   ```json
+   {
+     "streamers": [
+       // 已有的 6 个主播...
+       {
+         "id": 7,
+         "name": "新主播名",
+         "bio": "简短自我介绍",
+         "avatar": "/images/streamers/new-avatar.jpg",
+         "file": "streamers/7-新主播名.json",
+         "playlistCount": 1,
+         "songCount": 0
+       }
+     ]
+   }
+   ```
+
+4. **测试**
+   ```bash
+   pnpm dev
+   # 检查主页能否看到新主播
+   # 检查详情页能否正常加载
+   ```
+
+5. **提交**
+   ```bash
+   git add public/data/streamers/7-新主播名.json
+   git add public/data/streamers.json
+   git commit -m "feat: 添加新主播7"
+   git push
+   ```
+
+---
+
+### 场景 3：删除或修改主播基本信息
+
+假设要删除主播 3 或修改其名称。
+
+**步骤：**
+
+1. **修改两个文件：**
+
+   a) 删除主播数据文件：
+   ```bash
+   rm public/data/streamers/3-恰恰恰蘑菇.json
+   ```
+
+   b) 从索引文件中移除：
+   编辑 `public/data/streamers.json`，删除对应条目
+
+2. **测试**
+   ```bash
+   pnpm build  # 验证构建成功
+   ```
+
+3. **提交**
+   ```bash
+   git add public/data/streamers.json
+   git commit -m "chore: 删除主播3"
+   git push
+   ```
+
+---
+
+### 场景 4：同步索引的统计数据（可选优化）
+
+如果想保持 `playlistCount` 和 `songCount` 的精确性，可以使用脚本自动同步：
+
+```bash
+# 创建脚本（可选）
+python3 scripts/sync-index.py
+```
+
+脚本内容：
+```python
+import json
+from pathlib import Path
+
+# 读取索引
+with open('public/data/streamers.json', 'r', encoding='utf-8') as f:
+    index = json.load(f)
+
+# 更新每个主播的统计
+for entry in index['streamers']:
+    filepath = Path(entry['file'])
+    if filepath.exists():
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        entry['playlistCount'] = len(data.get('playlists', []))
+        entry['songCount'] = sum(
+            len(p.get('songs', [])) 
+            for p in data.get('playlists', [])
+        )
+
+# 保存更新
+with open('public/data/streamers.json', 'w', encoding='utf-8') as f:
+    json.dump(index, f, ensure_ascii=False, indent=2)
+
+print("✅ Index synced successfully")
+```
+
+---
+
+## 📋 数据维护检查清单
+
+每次修改前检查：
+
+- [ ] **主播详情文件** (`public/data/streamers/X-名字.json`)
+  - [ ] 所有必需字段都已填写（id, name, bio, avatar 等）
+  - [ ] playlists 数组不为空（至少 1 个歌单）
+  - [ ] JSON 格式正确（无语法错误）
+
+- [ ] **索引文件** (`public/data/streamers.json`)
+  - [ ] 所有主播都在索引中
+  - [ ] file 路径与实际文件对应
+  - [ ] JSON 格式正确
+
+- [ ] **Git 提交**
+  - [ ] 同时提交主播详情文件和索引文件（如需）
+  - [ ] 提交信息清晰明确
+  - [ ] 本地测试通过（`pnpm build` 成功）
+
+- [ ] **视频数据** （如需修改）
+  - [ ] 编辑 `public/data/videos.json`
+  - [ ] 单独提交，可与主播数据分开
+
+---
+
+## 💾 数据格式参考
+
+### 索引文件格式 (`public/data/streamers.json`)
+```json
+{
+  "streamers": [
+    {
+      "id": 1,
+      "name": "主播名称",
+      "bio": "简短介绍",
+      "avatar": "/images/streamers/avatar.jpg",
+      "file": "streamers/1-主播名.json",
+      "playlistCount": 3,
+      "songCount": 18
+    }
+  ]
+}
+```
+
+### 主播详情文件格式 (`public/data/streamers/X-名字.json`)
+```json
+{
+  "id": 1,
+  "name": "主播名称",
+  "bilibiliId": "8230334",
+  "liveUrl": "https://live.bilibili.com/8230334",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/8230334",
+  "cloudMusicUrl": "https://music.163.com",
+  "redUrl": "https://www.xiaohongshu.com",
+  "avatar": "/images/streamers/avatar.jpg",
+  "banner": "/images/streamers/banner.jpg",
+  "bio": "温柔治愈的女性Vtuber",
+  "description": "详细介绍...",
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "歌曲名",
+          "artist": "艺术家",
+          "genre": "流派",
+          "tag": "标签",
+          "language": "中文",
+          "album": "专辑",
+          "lyrics": "歌词内容",
+          "url": "https://music.url"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### 视频文件格式 (`public/data/videos.json`)
+```json
+[
+  {
+    "id": 1,
+    "title": "视频标题",
+    "cover": "/images/video/cover.jpg",
+    "videoUrl": "https://www.bilibili.com/video/BVxxx",
+    "description": "视频描述"
+  }
+]
+```
+
+---
+
+## 🚀 开发流程
+
+### 本地开发
+
+```bash
+# 启动开发服务器
+pnpm dev
+
+# 修改数据后自动热重载，无需重启
+```
+
+### 生产构建
+
+```bash
+# 验证构建成功
+pnpm build
+
+# 启动生产服务器
+pnpm start
+```
+
+---
 
 ## 常见问题
+
+### Q: 添加歌曲后主页没有更新？
+A: 主页只显示 `playlistCount` 和 `songCount`，这些值在索引文件中。详情页会实时加载完整数据。
+
+### Q: 可以同时编辑多个主播的文件吗？
+A: 可以，因为每个主播数据在独立文件中，不会冲突。但 Git 提交时建议分别提交。
+
+### Q: 如何备份数据？
+A: Git 就是最好的备份。定期 push 到远程仓库。
 
 ### Q: 图片无法显示？
 A: 检查路径是否正确，确保文件存在于 `public/images/streamers/`
 
-### Q: API 返回错误？
-A: B站 API 可能有速率限制，建议缓存结果
+### Q: JSON 格式出错如何排查？
+A: 使用 `pnpm build` 时会报告具体的错误位置，或在终端使用 `python3 -m json.tool` 验证
 
-### Q: 如何添加新歌词？
-A: 在 JSON 的歌曲对象中直接修改 `lyrics` 字段的内容
-
-### Q: 占位图何时替换？
-A: 当你收集到真实图片后随时可以替换

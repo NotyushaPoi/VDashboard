@@ -4,9 +4,9 @@ export interface Song {
   genre: string;
   lyrics: string;
   url: string;
-  tag?: string;        // 新增：标签/分类
-  language?: string;   // 新增：语言/语种
-  album?: string;      // 新增：专辑
+  tag?: string;
+  language?: string;
+  album?: string;
 }
 
 export interface Playlist {
@@ -24,29 +24,28 @@ export interface Anime {
 export interface Streamer {
   id: number;
   name: string;
-  bilibiliId: string;
-  liveUrl: string;
+  bio: string;
   avatar: string;
   banner: string;
-  bio: string;
-  description: string;
-  fans: string;
-  carouselUrl?: string;  // 新增：轮播点击链接
-  cloudMusicUrl?: string; // 新增：网易云音乐主页链接
-  redUrl?: string;       // 新增：小红书主页链接
-  playlists: Playlist[];
-  animes: Anime[];
+  // 完整数据（详情页面用）
+  bilibiliId?: string;
+  liveUrl?: string;
+  bilibiliSpaceUrl?: string;
+  description?: string;
+  cloudMusicUrl?: string;
+  redUrl?: string;
+  playlists?: Playlist[];
+  // 索引数据（主页用）
+  file?: string;
+  playlistCount?: number;
+  songCount?: number;
 }
 
-
 export interface Video {
+  id: number;
   title: string;
   cover: string;
   videoUrl: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
   description?: string;
 }
 
@@ -54,3 +53,4 @@ export interface StreamersData {
   streamers: Streamer[];
   videos?: Video[];
 }
+

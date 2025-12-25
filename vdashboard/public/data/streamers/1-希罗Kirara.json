@@ -1,0 +1,210 @@
+{
+  "id": 1,
+  "name": "希罗Kirara",
+  "bilibiliId": "8230334",
+  "liveUrl": "https://live.bilibili.com/",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/8230334",
+  "cloudMusicUrl": "https://music.163.com",
+  "redUrl": "https://www.xiaohongshu.com",
+  "avatar": "/images/streamers/placeholder.jpg",
+  "banner": "/images/streamers/placeholder-banner.jpg",
+  "bio": "待补充...",
+  "description": "<ChaosLive·S>画画的早鳰和OC兼主人希罗的频道！x✨梅花山：Kirara030( 0 x 0 )约稿请私信~",
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "123木头人",
+          "artist": "黑Girl",
+          "genre": "流行",
+          "tag": "摇滚",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1"
+        },
+        {
+          "name": "3月9日",
+          "artist": "Remioromen",
+          "genre": "日语",
+          "tag": "民谣",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song2"
+        },
+        {
+          "name": "99次我爱他",
+          "artist": "元若蓝",
+          "genre": "流行",
+          "tag": "抒情",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song3"
+        },
+        {
+          "name": "Hacking to the Gate",
+          "artist": "伊藤加奈惠",
+          "genre": "日语",
+          "tag": "电音",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song4"
+        },
+        {
+          "name": "First Love",
+          "artist": "宇多田光",
+          "genre": "日语",
+          "tag": "治愈",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song5"
+        },
+        {
+          "name": "Honey",
+          "artist": "王心凌",
+          "genre": "流行",
+          "tag": "甜蜜",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song6"
+        }
+      ]
+    },
+    {
+      "name": "治愈系精选",
+      "songs": [
+        {
+          "name": "光",
+          "artist": "野田洋次郎",
+          "genre": "日语",
+          "tag": "治愈",
+          "language": "日语",
+          "album": "《光》",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song101"
+        },
+        {
+          "name": "Lemon",
+          "artist": "米津玄師",
+          "genre": "日语",
+          "tag": "治愈",
+          "language": "日语",
+          "album": "STRAY SHEEP",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song102"
+        },
+        {
+          "name": "青い春",
+          "artist": "スピッツ",
+          "genre": "日语",
+          "tag": "民谣",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song103"
+        },
+        {
+          "name": "远方",
+          "artist": "李宇春",
+          "genre": "流行",
+          "tag": "治愈",
+          "language": "中文",
+          "album": "远方",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song104"
+        },
+        {
+          "name": "Counting Stars",
+          "artist": "OneRepublic",
+          "genre": "电子",
+          "tag": "治愈",
+          "language": "英语",
+          "album": "Native",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song105"
+        },
+        {
+          "name": "小情歌",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "甜蜜",
+          "language": "中文",
+          "album": "当爱情遭遇couture",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song106"
+        }
+      ]
+    },
+    {
+      "name": "动画OST合集",
+      "songs": [
+        {
+          "name": "OP ED Collection 01",
+          "artist": "Various Artists",
+          "genre": "动画",
+          "tag": "动画",
+          "language": "日语",
+          "album": "动画OST集合",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song201"
+        },
+        {
+          "name": "紅蓮華",
+          "artist": "藤冈みなみ",
+          "genre": "日语",
+          "tag": "动画",
+          "language": "日语",
+          "album": "鬼滅の刃 OP",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song202"
+        },
+        {
+          "name": "ようこそジャパリパークへ",
+          "artist": "どぶろっく",
+          "genre": "日语",
+          "tag": "动画",
+          "language": "日语",
+          "album": "けものフレンズ OP",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song203"
+        },
+        {
+          "name": "千年恋歌",
+          "artist": "甲斐谷忍",
+          "genre": "日语",
+          "tag": "动画",
+          "language": "日语",
+          "album": "歌之王子殿下 OP",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song204"
+        },
+        {
+          "name": "前前前世",
+          "artist": "RADWIMPS",
+          "genre": "日语",
+          "tag": "动画",
+          "language": "日语",
+          "album": "君の名は。OP",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song205"
+        },
+        {
+          "name": "Tell Your World",
+          "artist": "鈴木このみ",
+          "genre": "日语",
+          "tag": "动画",
+          "language": "日语",
+          "album": "新世紀エヴァンゲリオン OP",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song206"
+        }
+      ]
+    }
+  ]
+}

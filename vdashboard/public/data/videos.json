@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "春日物语 - 合唱投稿",
+    "cover": "/images/video/video1-cover.jpg",
+    "videoUrl": "https://www.bilibili.com/video/BV1eC28BtEzr/",
+    "description": "春和音成员合唱的春日物语，温暖上线！"
+  },
+  {
+    "id": 2,
+    "title": "夜的告白 - 独唱",
+    "cover": "/images/video/video2-cover.jpg",
+    "videoUrl": "https://www.bilibili.com/video/BV12pUdBREN2/",
+    "description": "可可的夜晚独唱，治愈你的心。"
+  },
+  {
+    "id": 3,
+    "title": "樱花飞舞时 - 翻唱",
+    "cover": "/images/video/video3-cover.jpg",
+    "videoUrl": "https://www.bilibili.com/video/BV1w9tszhEey/",
+    "description": "樱花季特别投稿，快来感受浪漫氛围！"
+  }
+]

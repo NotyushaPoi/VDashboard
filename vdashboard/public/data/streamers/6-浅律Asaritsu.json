@@ -1,0 +1,210 @@
+{
+  "id": 6,
+  "name": "浅律Asaritsu",
+  "bilibiliId": "6483585",
+  "liveUrl": "https://live.bilibili.com/",
+  "bilibiliSpaceUrl": "https://space.bilibili.com/6483585",
+  "cloudMusicUrl": "https://music.163.com",
+  "redUrl": "https://www.xiaohongshu.com",
+  "avatar": "/images/streamers/placeholder.jpg",
+  "banner": "/images/streamers/placeholder-banner.jpg",
+  "bio": "待补充...",
+  "description": "【魔法少女系唱见】我是虚拟魔怔人组合“早睡Project”的成员浅律！我最喜欢唱歌了，请多关照！ 唱见/混音/翻译 人设：Nar13",
+  "playlists": [
+    {
+      "name": "点唱曲库",
+      "songs": [
+        {
+          "name": "Friend",
+          "artist": "玉置浩二",
+          "genre": "日语",
+          "tag": "民谣",
+          "language": "日语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1501"
+        },
+        {
+          "name": "A Thousand Years",
+          "artist": "Christina Perri",
+          "genre": "英语",
+          "tag": "抒情",
+          "language": "英语",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1502"
+        },
+        {
+          "name": "Buoys",
+          "artist": "Shawn Mendes",
+          "genre": "英语",
+          "tag": "抒情",
+          "language": "英语",
+          "album": "Wonder",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1503"
+        },
+        {
+          "name": "沧海一声笑",
+          "artist": "徐克",
+          "genre": "流行",
+          "tag": "古风",
+          "language": "中文",
+          "album": "笑傲江湖",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1504"
+        },
+        {
+          "name": "那些花儿",
+          "artist": "朴树",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "生如夏花",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1505"
+        },
+        {
+          "name": "理想三旬",
+          "artist": "音阙诗听",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1506"
+        }
+      ]
+    },
+    {
+      "name": "民谣深情",
+      "songs": [
+        {
+          "name": "后会无期",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "怪物",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1601"
+        },
+        {
+          "name": "突然好想你",
+          "artist": "五月天",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "怪物",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1602"
+        },
+        {
+          "name": "晴天",
+          "artist": "周杰伦",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "依然范特西",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1603"
+        },
+        {
+          "name": "以父之名",
+          "artist": "周杰伦",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "八度空间",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1604"
+        },
+        {
+          "name": "成都",
+          "artist": "赵雷",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "成都",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1605"
+        },
+        {
+          "name": "光阴的故事",
+          "artist": "黄家驹",
+          "genre": "流行",
+          "tag": "民谣",
+          "language": "中文",
+          "album": "未知",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1606"
+        }
+      ]
+    },
+    {
+      "name": "英文深情",
+      "songs": [
+        {
+          "name": "Hallelujah",
+          "artist": "Leonard Cohen",
+          "genre": "英语",
+          "tag": "深情",
+          "language": "英语",
+          "album": "Various Positions",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1701"
+        },
+        {
+          "name": "Someone Like You",
+          "artist": "Adele",
+          "genre": "英语",
+          "tag": "深情",
+          "language": "英语",
+          "album": "21",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1702"
+        },
+        {
+          "name": "The Scientist",
+          "artist": "Coldplay",
+          "genre": "英语",
+          "tag": "深情",
+          "language": "英语",
+          "album": "A Rush of Blood to the Head",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1703"
+        },
+        {
+          "name": "Fix You",
+          "artist": "Coldplay",
+          "genre": "英语",
+          "tag": "深情",
+          "language": "英语",
+          "album": "X&Y",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1704"
+        },
+        {
+          "name": "Iris",
+          "artist": "Goo Goo Dolls",
+          "genre": "英语",
+          "tag": "深情",
+          "language": "英语",
+          "album": "Dizzy Up the Girl",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1705"
+        },
+        {
+          "name": "Yesterday",
+          "artist": "The Beatles",
+          "genre": "英语",
+          "tag": "深情",
+          "language": "英语",
+          "album": "Help!",
+          "lyrics": "歌词占位",
+          "url": "https://music.example.com/song1706"
+        }
+      ]
+    }
+  ]
+}
