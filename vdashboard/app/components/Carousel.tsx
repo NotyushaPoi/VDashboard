@@ -52,40 +52,46 @@ export function Carousel({ videos }: CarouselProps) {
       onMouseEnter={() => setIsAutoPlay(false)}
       onMouseLeave={() => setIsAutoPlay(true)}
     >
-      {/* Video Covers */}
-      {videos.map((video, index) => (
-        <a
-          href={video.videoUrl}
-          key={video.id}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute inset-0 cursor-pointer group/item"
-          style={{
-            opacity: index === currentIndex ? 1 : 0,
-            transition: "opacity 0.5s ease-in-out",
-          }}
-        >
-          {/* Background Placeholder Color */}
-          <div className="absolute inset-0 bg-linear-to-br from-purple-400 via-pink-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold">
-            {video.cover}
-          </div>
-          
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/0 group-hover/item:bg-black/20 transition-colors" />
-          
-          {/* Video Title at Bottom Left */}
-          <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-6">
-            <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">
-              {video.title}
-            </h3>
-            {video.description && (
-              <p className="text-white/80 text-sm mt-2 line-clamp-2">
-                {video.description}
-              </p>
-            )}
-          </div>
-        </a>
-      ))}
+      {/* 只渲染当前索引的视频 */}
+      {(() => {
+        const video = videos[currentIndex];
+        return (
+          <a
+            href={video.videoUrl}
+            key={video.id}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 cursor-pointer group/item"
+            style={{
+              opacity: 1,
+              transition: "opacity 0.5s ease-in-out",
+            }}
+          >
+            {/* Background Image */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('${video.cover}')`,
+              }}
+            />
+            {/* Fallback gradient if image doesn't load */}
+            <div className="absolute inset-0 bg-linear-to-br from-purple-400 via-pink-400 to-purple-500" />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/0 group-hover/item:bg-black/20 transition-colors" />
+            {/* Video Title at Bottom Left */}
+            <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">
+                {video.title}
+              </h3>
+              {video.description && (
+                <p className="text-white/80 text-sm mt-2 line-clamp-2">
+                  {video.description}
+                </p>
+              )}
+            </div>
+          </a>
+        );
+      })()}
 
       {/* Previous Button */}
       <button
