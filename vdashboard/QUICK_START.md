@@ -3,7 +3,7 @@
 ## 🚀 一键启动
 
 ```bash
-cd /Users/notyushapoi/VDashboard/vdashboard
+cd /VDashboard/vdashboard
 pnpm dev
 ```
 

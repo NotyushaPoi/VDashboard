@@ -4,7 +4,7 @@
 
 ### 安装依赖
 ```bash
-cd /Users/notyushapoi/VDashboard/vdashboard
+cd /VDashboard/vdashboard
 pnpm install
 ```
 
@@ -132,14 +132,6 @@ Data 层 (存储)
         }
       ]
     }
-  ],
-  "animes": [
-    {
-      "name": "番剧名",
-      "episodes": 12,
-      "status": "在看",
-      "url": "https://anime.url"
-    }
   ]
 }
 ```
@@ -152,7 +144,7 @@ Data 层 (存储)
 
 **只修改第 2 层详情文件**（不需更新索引）：
 
-编辑 `public/data/streamers/X-名字.json` 中的 `playlists` 和 `animes` 字段：
+编辑 `public/data/streamers/X-名字.json` 中的 `playlists` 字段：
 
 ```json
 {
@@ -171,14 +163,6 @@ Data 层 (存储)
           "url": "https://music.url"
         }
       ]
-    }
-  ],
-  "animes": [
-    {
-      "name": "番剧名",
-      "episodes": 12,
-      "status": "在看",
-      "url": "https://anime.url"
     }
   ]
 }

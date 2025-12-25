@@ -15,7 +15,7 @@
 
 1. **将项目推送到 GitHub**
 ```bash
-cd /Users/notyushapoi/VDashboard
+cd /VDashboard
 git init
 git add .
 git commit -m "initial: VDashboard project"

@@ -1,7 +1,7 @@
-# 🎉 VDashboard 2024年度更新 - 完成总结
+# 🎉 VDashboard 2025年度更新 - 完成总结
 
 ## 📅 更新日期
-**2024年12月24日**
+**2025年12月25日**
 
 ---
 
@@ -162,7 +162,7 @@ B站: bg-blue-500 → bg-blue-600
 
 ### 新增文档: 3
 
-- 📄 `UPDATE_SUMMARY_2024.md` - 详细变更说明
+- 📄 `UPDATE_SUMMARY_2025.md` - 详细变更说明
 - 📄 `QUICK_REFERENCE.md` - 快速使用指南
 - 📄 `CHANGELOG.md` - 版本变更日志
 
@@ -196,7 +196,7 @@ B站: bg-blue-500 → bg-blue-600
 
 ```bash
 # 1. 进入项目目录
-cd /Users/notyushapoi/VDashboard/vdashboard
+cd /VDashboard/vdashboard
 
 # 2. 安装依赖
 pnpm install
@@ -269,7 +269,7 @@ pnpm start
 
 ## 🎓 学习资源
 
-- `UPDATE_SUMMARY_2024.md` - 详细技术细节
+- `UPDATE_SUMMARY_2025.md` - 详细技术细节
 - `QUICK_REFERENCE.md` - 快速操作指南
 - `CHANGELOG.md` - 完整版本历史
 
@@ -286,5 +286,5 @@ pnpm start
 
 **项目状态**: ✅ **已完成，可投入使用**
 
-**最后更新**: 2024年12月24日
+**最后更新**: 2025年12月25日
 
