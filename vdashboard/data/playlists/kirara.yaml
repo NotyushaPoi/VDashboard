@@ -1,0 +1,29 @@
+# 希罗Kirara - 歌单配置
+
+playlists:
+  - name: "点唱曲库"
+    songs:
+      - "kirara_001"
+      - "kirara_002"
+      - "kirara_003"
+      - "kirara_004"
+      - "kirara_005"
+      - "kirara_006"
+
+  - name: "治愈系精选"
+    songs:
+      - "kirara_101"
+      - "kirara_102"
+      - "kirara_103"
+      - "kirara_104"
+      - "kirara_105"
+      - "kirara_106"
+
+  - name: "动画OST合集"
+    songs:
+      - "kirara_201"
+      - "kirara_202"
+      - "kirara_203"
+      - "kirara_204"
+      - "kirara_205"
+      - "kirara_206"

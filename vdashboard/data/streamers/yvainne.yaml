@@ -1,0 +1,24 @@
+# Yvaine可可 - 主播信息配置
+
+id: 2
+name: "Yvaine可可"
+slug: "yvainne"
+bio: "待补充..."
+avatar: "/images/streamers/placeholder.jpg"
+banner: "/images/streamers/placeholder-banner.jpg"
+
+# B站信息
+bilibiliId: "9638159"
+bilibiliSpaceUrl: "https://space.bilibili.com/9638159"
+liveUrl: "https://live.bilibili.com/916864"
+cloudMusicUrl: "https://music.163.com"
+redUrl: "https://www.xiaohongshu.com"
+
+# 品牌色 (主色 -> 副色)
+themeColors:
+  primary: "#30B4AB"      # 青绿色
+  secondary: "#144B46"    # 深青色
+
+# 主播描述
+description: |
+  待补充

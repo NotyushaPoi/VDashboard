@@ -1,0 +1,24 @@
+# 浅律 - 主播信息配置
+
+id: 6
+name: "浅律"
+slug: "asaritsu"
+bio: "待补充..."
+avatar: "/images/streamers/placeholder.jpg"
+banner: "/images/streamers/placeholder-banner.jpg"
+
+# B站信息
+bilibiliId: "6483585"
+bilibiliSpaceUrl: "https://space.bilibili.com/6483585"
+liveUrl: "https://live.bilibili.com/22553887"
+cloudMusicUrl: "https://music.163.com"
+redUrl: "https://www.xiaohongshu.com"
+
+# 品牌色 (主色 -> 副色)
+themeColors:
+  primary: "#C0C2FA"      # 淡紫色
+  secondary: "#FCD4DD"    # 浅粉色
+
+# 主播描述
+description: |
+  待补充

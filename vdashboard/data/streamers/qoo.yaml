@@ -1,0 +1,24 @@
+# 悄悄Qoo - 主播信息配置
+
+id: 5
+name: "悄悄Qoo"
+slug: "qoo"
+bio: "待补充..."
+avatar: "/images/streamers/placeholder.jpg"
+banner: "/images/streamers/placeholder-banner.jpg"
+
+# B站信息
+bilibiliId: "1436878388"
+bilibiliSpaceUrl: "https://space.bilibili.com/1436878388"
+liveUrl: "https://live.bilibili.com/23831283"
+cloudMusicUrl: "https://music.163.com"
+redUrl: "https://www.xiaohongshu.com"
+
+# 品牌色 (主色 -> 副色)
+themeColors:
+  primary: "#FFD2DE"      # 浅粉色
+  secondary: "#9A4856"    # 暗红褐色
+
+# 主播描述
+description: |
+  待补充

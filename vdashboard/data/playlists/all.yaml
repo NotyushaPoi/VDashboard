@@ -1,0 +1,15 @@
+# 歌单配置模板 - 所有主播使用相同的 3 个歌单结构
+# 实际部署时，每个主播的歌单会映射到对应的歌曲 ID
+
+template:
+  - name: "点唱曲库"
+    description: "经典热门歌曲精选"
+    songCount: 6
+
+  - name: "治愈系精选"
+    description: "放松心灵的治愈音乐"
+    songCount: 6
+
+  - name: "动画OST合集"
+    description: "动画原声音乐收录"
+    songCount: 6

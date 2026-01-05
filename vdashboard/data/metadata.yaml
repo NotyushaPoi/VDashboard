@@ -1,0 +1,59 @@
+# VDashboard 主播元数据配置
+# 用于映射主播信息和组织数据
+
+streamers:
+  - id: 1
+    slug: "kirara"
+    dataFile: "streamers/kirara.yaml"
+    
+  - id: 2
+    slug: "yvainne"
+    dataFile: "streamers/yvainne.yaml"
+    
+  - id: 3
+    slug: "choco"
+    dataFile: "streamers/choco.yaml"
+    
+  - id: 4
+    slug: "sakura"
+    dataFile: "streamers/sakura.yaml"
+    
+  - id: 5
+    slug: "qoo"
+    dataFile: "streamers/qoo.yaml"
+    
+  - id: 6
+    slug: "asaritsu"
+    dataFile: "streamers/asaritsu.yaml"
+
+# 每个主播的歌单配置
+playlists:
+  kirara:
+    - "点唱曲库"
+    - "治愈系精选"
+    - "动画OST合集"
+  yvainne:
+    - "点唱曲库"
+    - "治愈系精选"
+    - "动画OST合集"
+  choco:
+    - "点唱曲库"
+    - "治愈系精选"
+    - "动画OST合集"
+  sakura:
+    - "点唱曲库"
+    - "治愈系精选"
+    - "动画OST合集"
+  qoo:
+    - "点唱曲库"
+    - "治愈系精选"
+    - "动画OST合集"
+  asaritsu:
+    - "点唱曲库"
+    - "治愈系精选"
+    - "动画OST合集"
+
+# 全局配置
+config:
+  dataVersion: "1.0"
+  lastUpdated: "2025-01-05"

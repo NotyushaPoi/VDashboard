@@ -1,0 +1,25 @@
+# 希罗Kirara - 主播信息配置
+
+id: 1
+name: "希罗Kirara"
+slug: "kirara"
+bio: "待补充..."
+avatar: "/images/streamers/placeholder.jpg"
+banner: "/images/streamers/placeholder-banner.jpg"
+
+# B站信息
+bilibiliId: "8230334"
+bilibiliSpaceUrl: "https://space.bilibili.com/8230334"
+liveUrl: "https://live.bilibili.com/400605"
+cloudMusicUrl: "https://music.163.com"
+redUrl: "https://www.xiaohongshu.com"
+
+# 品牌色 (主色 -> 副色)
+themeColors:
+  primary: "#FCBD91"      # 暖橘色
+  secondary: "#FFAAA8"    # 粉红色
+
+# 主播描述
+description: |
+  <ChaosLive·S>画画的早鳰和OC兼主人希罗的频道！x✨
+  梅花山：Kirara030( 0 x 0 )约稿请私信~

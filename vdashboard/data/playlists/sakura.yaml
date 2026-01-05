@@ -1,0 +1,29 @@
+# 姬月樱 - 歌单配置
+
+playlists:
+  - name: "点唱曲库"
+    songs:
+      - "demo_001"
+      - "demo_002"
+      - "demo_003"
+      - "demo_004"
+      - "demo_005"
+      - "demo_006"
+
+  - name: "治愈系精选"
+    songs:
+      - "demo_101"
+      - "demo_102"
+      - "demo_103"
+      - "demo_104"
+      - "demo_105"
+      - "demo_106"
+
+  - name: "动画OST合集"
+    songs:
+      - "demo_201"
+      - "demo_202"
+      - "demo_203"
+      - "demo_204"
+      - "demo_205"
+      - "demo_206"

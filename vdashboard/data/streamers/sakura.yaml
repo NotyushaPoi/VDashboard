@@ -1,0 +1,24 @@
+# 姬月樱 - 主播信息配置
+
+id: 4
+name: "姬月樱"
+slug: "sakura"
+bio: "待补充..."
+avatar: "/images/streamers/placeholder.jpg"
+banner: "/images/streamers/placeholder-banner.jpg"
+
+# B站信息
+bilibiliId: "5744398"
+bilibiliSpaceUrl: "https://space.bilibili.com/5744398"
+liveUrl: "https://live.bilibili.com/1820330437"
+cloudMusicUrl: "https://music.163.com"
+redUrl: "https://www.xiaohongshu.com"
+
+# 品牌色 (主色 -> 副色)
+themeColors:
+  primary: "#FFDB4F"      # 金黄色
+  secondary: "#F4CFE0"    # 浅粉色
+
+# 主播描述
+description: |
+  待补充
