@@ -64,7 +64,6 @@ next-env.d.ts
 # Vercel
 .vercel/
 
-# Generated data (YAML source, not committed to runtime)
-vdashboard/data/
+# Generated data (ignore only generated JSON files, keep YAML sources)
 vdashboard/public/data/**/*.json
 !vdashboard/public/data/videos.json
