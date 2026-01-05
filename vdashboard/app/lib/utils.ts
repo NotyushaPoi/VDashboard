@@ -2,6 +2,49 @@ import { StreamersData, Streamer } from "./types";
 import path from "path";
 import fs from "fs/promises";
 
+// Slug 与 ID 的映射关系
+const SLUG_TO_ID: Record<string, number> = {
+  kirara: 1,
+  yvainne: 2,
+  choco: 3,
+  sakura: 4,
+  qoo: 5,
+  asaritsu: 6,
+};
+
+const ID_TO_SLUG: Record<number, string> = {
+  1: "kirara",
+  2: "yvainne",
+  3: "choco",
+  4: "sakura",
+  5: "qoo",
+  6: "asaritsu",
+};
+
+// 主播主题色配置
+const STREAMER_THEME_COLORS: Record<number, { primary: string; secondary: string }> = {
+  1: { primary: "#FCBD91", secondary: "#FFAAA8" },
+  2: { primary: "#30B4AB", secondary: "#144B46" },
+  3: { primary: "#92D04F", secondary: "#0E9B3F" },
+  4: { primary: "#FFDB4F", secondary: "#F4CFE0" },
+  5: { primary: "#FFD2DE", secondary: "#9A4856" },
+  6: { primary: "#C0C2FA", secondary: "#FCD4DD" },
+};
+
+export function idToSlug(id: number): string | undefined {
+  return ID_TO_SLUG[id];
+}
+
+export function slugToId(slug: string): number | undefined {
+  return SLUG_TO_ID[slug.toLowerCase()];
+}
+
+export function getStreamerThemeColors(
+  id: number
+): { primary: string; secondary: string } | undefined {
+  return STREAMER_THEME_COLORS[id];
+}
+
 // 缓存索引数据（轻量级）
 let indexCache: StreamersData | null = null;
 

@@ -1,7 +1,18 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies (all subdirectories)
+node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -10,32 +21,50 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+# Package manager locks (only in vdashboard/)
+vdashboard/pnpm-lock.yaml
+vdashboard/yarn.lock
+vdashboard/package-lock.json
 
-# next.js
-/.next/
-/out/
+# Build outputs
+vdashboard/.next/
+vdashboard/out/
+vdashboard/build/
+dist/
 
-# production
-/build
+# Testing
+coverage/
+.nyc_output/
 
-# misc
-.DS_Store
-*.pem
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-# debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
 
-# vercel
-.vercel
-
-# typescript
+# Misc files
+*.pem
+*.key
+*.cert
 *.tsbuildinfo
 next-env.d.ts
+
+# Vercel
+.vercel/
+
+# Generated data (YAML source, not committed to runtime)
+vdashboard/data/
+vdashboard/public/data/**/*.json
+!vdashboard/public/data/videos.json

@@ -27,6 +27,11 @@ export interface Streamer {
   bio: string;
   avatar: string;
   banner: string;
+  slug?: string; // URL 友好的主播标识
+  themeColors?: {
+    primary: string; // 主色，例如 #FCBD91
+    secondary: string; // 副色，例如 #FFAAA8
+  };
   // 完整数据（详情页面用）
   bilibiliId?: string;
   liveUrl?: string;

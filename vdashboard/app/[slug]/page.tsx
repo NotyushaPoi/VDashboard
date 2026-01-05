@@ -1,5 +1,10 @@
-import { getStreamerById, getAllStreamers } from "@/app/lib/utils";
-import { TabPanel } from "@/app/streamer/components/TabPanel";
+import {
+  getStreamerById,
+  getAllStreamers,
+  slugToId,
+  getStreamerThemeColors,
+} from "@/app/lib/utils";
+import { TabPanel } from "@/app/components/TabPanel";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -7,13 +12,21 @@ export const revalidate = 60;
 
 interface StreamerPageProps {
   params: Promise<{
-    id: string;
+    slug: string;
   }>;
 }
 
 export async function generateMetadata({ params }: StreamerPageProps) {
-  const { id } = await params;
-  const streamer = await getStreamerById(parseInt(id));
+  const { slug } = await params;
+  const id = slugToId(slug);
+
+  if (!id) {
+    return {
+      title: "主播不存在",
+    };
+  }
+
+  const streamer = await getStreamerById(id);
 
   if (!streamer) {
     return {
@@ -30,27 +43,46 @@ export async function generateMetadata({ params }: StreamerPageProps) {
 export async function generateStaticParams() {
   const streamers = await getAllStreamers();
   return streamers.map((streamer) => ({
-    id: streamer.id.toString(),
+    slug: streamer.id === 1 ? "kirara" :
+          streamer.id === 2 ? "yvainne" :
+          streamer.id === 3 ? "choco" :
+          streamer.id === 4 ? "sakura" :
+          streamer.id === 5 ? "qoo" :
+          "asaritsu",
   }));
 }
 
 export default async function StreamerPage({ params }: StreamerPageProps) {
-  const { id } = await params;
-  const streamer = await getStreamerById(parseInt(id));
+  const { slug } = await params;
+  const id = slugToId(slug);
+
+  if (!id) {
+    notFound();
+  }
+
+  const streamer = await getStreamerById(id);
 
   if (!streamer) {
     notFound();
   }
 
-  const biliBiliSpaceUrl = `https://space.bilibili.com/${streamer.bilibiliId}`;
-  const biliBiliLiveUrl = `https://live.bilibili.com/${streamer.bilibiliId}`;
+  const themeColors = getStreamerThemeColors(id);
+  const biliBiliSpaceUrl = streamer.bilibiliSpaceUrl || `https://space.bilibili.com/${streamer.bilibiliId}`;
+  const biliBiliLiveUrl = streamer.liveUrl || `https://live.bilibili.com/${streamer.bilibiliId}`;
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      {/* Banner with Split Buttons */}
-      <div className="relative w-full h-80 md:h-96 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center overflow-hidden">
+      {/* Banner with Split Buttons - using theme colors */}
+      <div
+        className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: themeColors
+            ? `linear-gradient(135deg, ${themeColors.primary} 0%, ${themeColors.secondary} 100%)`
+            : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        }}
+      >
         <div className="absolute inset-0 bg-black/0" />
-        
+
         {/* Left Button - B站主页 */}
         <a
           href={biliBiliSpaceUrl}
@@ -93,7 +125,14 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
           <div className="flex flex-col sm:flex-row gap-8 items-start">
             {/* Avatar */}
             <div className="flex-shrink-0">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-300 to-pink-300 flex items-center justify-center text-white text-4xl font-bold">
+              <div
+                className="w-32 h-32 rounded-full flex items-center justify-center text-white text-4xl font-bold"
+                style={{
+                  backgroundImage: themeColors
+                    ? `linear-gradient(135deg, ${themeColors.primary} 0%, ${themeColors.secondary} 100%)`
+                    : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                }}
+              >
                 {streamer.name.charAt(0)}
               </div>
             </div>
@@ -115,13 +154,16 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
                 {streamer.description}
               </p>
 
-              {/* 新按钮顺序：B站主页、直播间、网易云、小红书、返回首页 */}
+              {/* Buttons with theme color */}
               <div className="flex gap-3 flex-wrap mb-6">
                 <a
                   href={biliBiliSpaceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors text-sm"
+                  className="px-4 py-2 text-white font-semibold rounded-lg transition-colors text-sm hover:opacity-80"
+                  style={{
+                    backgroundColor: themeColors?.primary || "#3b82f6",
+                  }}
                   title="访问 B 站主页"
                 >
                   📺 B站主页
@@ -130,7 +172,10 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
                   href={biliBiliLiveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors text-sm"
+                  className="px-4 py-2 text-white font-semibold rounded-lg transition-colors text-sm hover:opacity-80"
+                  style={{
+                    backgroundColor: themeColors?.secondary || "#a855f7",
+                  }}
                   title="进入直播间"
                 >
                   🎬 直播间
@@ -154,7 +199,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
                   ❤️ 小红书
                 </a>
                 <Link
-                  href="/"
+                  href="/home"
                   className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-bold rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm"
                 >
                   ← 返回首页
