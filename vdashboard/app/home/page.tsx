@@ -46,7 +46,12 @@ export default async function Home() {
                     className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
                   >
                     {/* Banner Placeholder */}
-                    <div className="w-full h-40 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center relative overflow-hidden">
+                    <div 
+                      className="w-full h-40 flex items-center justify-center relative overflow-hidden"
+                      style={{
+                        background: `linear-gradient(135deg, ${streamer.themeColors?.primary || '#8B5CF6'}, ${streamer.themeColors?.secondary || '#EC4899'})`
+                      }}
+                    >
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                       <span className="text-white font-semibold text-center px-4">
                         {streamer.name}
@@ -57,7 +62,12 @@ export default async function Home() {
                     <div className="p-4">
                       {/* Avatar */}
                       <div className="flex items-center gap-4 mb-3">
-                        <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-300 to-pink-300 flex items-center justify-center text-white font-bold shrink-0">
+                        <div 
+                          className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold shrink-0"
+                          style={{
+                            background: `linear-gradient(135deg, ${streamer.themeColors?.primary || '#8B5CF6'}, ${streamer.themeColors?.secondary || '#EC4899'})`
+                          }}
+                        >
                           {streamer.name.charAt(0)}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -79,7 +89,12 @@ export default async function Home() {
                       </div>
 
                       {/* Button */}
-                      <button className="w-full py-2 px-4 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow group-hover:from-purple-600 group-hover:to-pink-600">
+                      <button 
+                        className="w-full py-2 px-4 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
+                        style={{
+                          background: `linear-gradient(to right, ${streamer.themeColors?.primary || '#8B5CF6'}, ${streamer.themeColors?.secondary || '#EC4899'})`
+                        }}
+                      >
                         查看详情
                       </button>
                     </div>
