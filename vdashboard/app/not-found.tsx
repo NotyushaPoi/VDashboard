@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-950 flex items-center justify-center px-4">
+    <main className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="text-center max-w-md">
-        <h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-4">404</h1>
-        <p className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">页面未找到</p>
-        <p className="text-gray-600 dark:text-gray-400 mb-8">
+        <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
+        <p className="text-2xl font-semibold text-gray-900 mb-4">页面未找到</p>
+        <p className="text-gray-600 mb-8">
           抱歉，您访问的页面不存在或已被移除。
         </p>
         <Link

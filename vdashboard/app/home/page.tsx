@@ -50,7 +50,7 @@ export default async function Home() {
 
           {/* Members Grid */}
           <div>
-            <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold mb-8 text-gray-900">
               🌟 成员一览
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -60,10 +60,10 @@ export default async function Home() {
                   <Link
                     key={streamer.id}
                     href={`/${slug}`}
-                    className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                    className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
                   >
                     {/* Banner */}
-                    <div className="w-full h-40 relative overflow-hidden bg-gray-200 dark:bg-gray-700">
+                    <div className="w-full h-40 relative overflow-hidden bg-gray-200">
                       {streamer.banner && (
                         <Image
                           src={streamer.banner}
@@ -101,7 +101,7 @@ export default async function Home() {
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-lg text-gray-900 dark:text-white truncate">
+                          <h3 className="font-bold text-lg text-gray-900 truncate">
                             {streamer.name}
                           </h3>
                         </div>
@@ -138,7 +138,7 @@ export default async function Home() {
 
       {/* Footer */}
       <footer className="border-t border-gray-200 py-8 px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm relative z-10">
-        <div className="max-w-7xl mx-auto text-center text-gray-600 dark:text-gray-400">
+        <div className="max-w-7xl mx-auto text-center text-gray-600">
           <p>© 2026 Harumonie. All rights reserved.</p>
         </div>
       </footer>

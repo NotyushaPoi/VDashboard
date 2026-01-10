@@ -81,7 +81,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
       style={{ background: gradientBg }}
     >
       {/* Banner */}
-      <div className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden bg-gray-200 dark:bg-gray-700">
+      <div className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden bg-gray-200">
         {streamer.banner ? (
           <Image
             src={streamer.banner}
@@ -141,7 +141,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
           <div className="flex flex-col sm:flex-row gap-8 items-start">
           {/* Avatar */}
             <div className="flex-shrink-0">
-              <div className="w-32 h-32 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+              <div className="w-32 h-32 rounded-full flex items-center justify-center bg-gray-200 overflow-hidden relative">
                 {streamer.avatar ? (
                   <Image
                     src={streamer.avatar}
@@ -167,15 +167,15 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
 
             {/* Info */}
             <div className="flex-1">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">
                 {streamer.name}
               </h2>
               <div className="flex gap-4 mb-4 text-sm">
-                <span className="text-gray-600 dark:text-gray-400">
+                <span className="text-gray-600">
                   UID: {streamer.bilibiliId}
                 </span>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-gray-600 mb-6">
                 {streamer.description}
               </p>
 
@@ -225,7 +225,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
                 </a>
                 <Link
                   href="/home"
-                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-bold rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm"
+                  className="px-4 py-2 bg-gray-200 text-gray-900 font-bold rounded-lg hover:bg-gray-300 transition-colors text-sm"
                 >
                   ← 返回首页
                 </Link>
@@ -243,7 +243,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
 
       {/* Footer */}
       <footer className="border-t border-gray-300 py-8 px-4 sm:px-6 lg:px-8 bg-white/50 mt-12">
-        <div className="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-400">
+        <div className="max-w-6xl mx-auto text-center text-gray-600">
           <p>© 2026 Harumonie. All rights reserved.</p>
         </div>
       </footer>

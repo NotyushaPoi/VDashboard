@@ -48,7 +48,7 @@ export function Carousel({ videos }: CarouselProps) {
 
   return (
     <div
-      className="relative w-full bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden group"
+      className="relative w-full bg-gray-200 rounded-xl overflow-hidden group"
       style={{ aspectRatio: "16/6" }}
       onMouseEnter={() => setIsAutoPlay(false)}
       onMouseLeave={() => setIsAutoPlay(true)}
