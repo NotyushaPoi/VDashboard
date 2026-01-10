@@ -240,7 +240,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
       {/* Footer */}
       <footer className="border-t border-gray-200 dark:border-gray-700 py-8 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-900 mt-12">
         <div className="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-400">
-          <p>© 2024 Harumonie. All rights reserved.</p>
+          <p>© 2026 Harumonie. All rights reserved.</p>
         </div>
       </footer>
     </main>
