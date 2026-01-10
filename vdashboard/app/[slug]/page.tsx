@@ -71,8 +71,15 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
   const biliBiliSpaceUrl = streamer.bilibiliSpaceUrl || `https://space.bilibili.com/${streamer.bilibiliId}`;
   const biliBiliLiveUrl = streamer.liveUrl || `https://live.bilibili.com/${streamer.bilibiliId}`;
 
+  const gradientBg = themeColors 
+    ? `linear-gradient(135deg, rgba(${parseInt(themeColors.primary.slice(1,3), 16)}, ${parseInt(themeColors.primary.slice(3,5), 16)}, ${parseInt(themeColors.primary.slice(5,7), 16)}, 0.05), rgba(${parseInt(themeColors.secondary.slice(1,3), 16)}, ${parseInt(themeColors.secondary.slice(3,5), 16)}, ${parseInt(themeColors.secondary.slice(5,7), 16)}, 0.05))`
+    : 'linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05))';
+
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <main 
+      className="min-h-screen bg-white"
+      style={{ background: gradientBg }}
+    >
       {/* Banner */}
       <div className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden bg-gray-200 dark:bg-gray-700">
         {streamer.banner ? (
@@ -238,7 +245,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-700 py-8 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-900 mt-12">
+      <footer className="border-t border-gray-300 py-8 px-4 sm:px-6 lg:px-8 bg-white/50 mt-12">
         <div className="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-400">
           <p>© 2026 Harumonie. All rights reserved.</p>
         </div>

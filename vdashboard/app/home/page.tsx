@@ -9,18 +9,34 @@ export default async function Home() {
   const { streamers, videos } = await getStreamersData();
 
   return (
-    <main className="min-h-screen bg-linear-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
+    <main 
+      className="min-h-screen bg-white text-gray-900 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/bg2.png)',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-white/45" />
+      <div className="relative z-10">
       {/* Hero Section with Carousel */}
       <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-              <span className="bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                春和音-Harumonie
-              </span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black mb-4 drop-shadow-lg" style={{
+              background: 'linear-gradient(to right, #FF69B4, #FF1493, #FFB6C1)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '2px 2px 4px rgba(255, 105, 180, 0.3)',
+              letterSpacing: '0.05em',
+            }}>
+              春和音 - Harumonie
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto font-medium">
               我们的歌声，是献给世界的一整个春天。
             </p>
           </div>
@@ -64,7 +80,7 @@ export default async function Home() {
                     <div className="p-4">
                       {/* Avatar */}
                       <div className="flex items-center gap-4 mb-3">
-                        <div className="w-12 h-12 rounded-full flex-shrink-0 relative bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                  <div className="w-12 h-12 rounded-full flex-shrink-0 relative bg-gray-200 overflow-hidden">
                           {streamer.avatar ? (
                             <Image
                               src={streamer.avatar}
@@ -92,12 +108,12 @@ export default async function Home() {
                       </div>
 
                       {/* Bio */}
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                      <p className="text-sm text-gray-700 mb-4 line-clamp-2">
                         {streamer.bio}
                       </p>
 
                       {/* Stats */}
-                      <div className="flex gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+                      <div className="flex gap-4 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-300">
                         <span>🎵 {streamer.playlistCount ?? 0} 个歌单</span>
                         <span>🎶 {streamer.songCount ?? 0} 首歌曲</span>
                       </div>
@@ -121,11 +137,12 @@ export default async function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-700 py-8 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+      <footer className="border-t border-gray-200 py-8 px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm relative z-10">
         <div className="max-w-7xl mx-auto text-center text-gray-600 dark:text-gray-400">
           <p>© 2026 Harumonie. All rights reserved.</p>
         </div>
       </footer>
+      </div>
     </main>
   );
 }
