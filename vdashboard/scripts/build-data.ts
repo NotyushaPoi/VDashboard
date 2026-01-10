@@ -248,6 +248,8 @@ async function buildData() {
       name: streamerData.name,
       slug: streamerData.slug,
       avatar: streamerData.avatar,
+      banner: streamerData.banner,
+      description: streamerData.description,
       themeColors: streamerData.themeColors,
       file: `streamers/${slug}.json`,
       playlistCount: playlists.length,

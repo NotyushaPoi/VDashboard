@@ -107,6 +107,11 @@ export default async function Home() {
                         </div>
                       </div>
 
+                      {/* Description */}
+                      <p className="text-sm text-gray-700 mb-4 line-clamp-3">
+                        {streamer.description}
+                      </p>
+
                       {/* Stats */}
                       <div className="flex gap-4 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-300">
                         <span>🎵 {streamer.playlistCount ?? 0} 个歌单</span>
