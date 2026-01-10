@@ -1,5 +1,6 @@
 import { Carousel } from "@/app/components/Carousel";
 import Link from "next/link";
+import Image from "next/image";
 import { getStreamersData, idToSlug } from "@/app/lib/utils";
 
 export const revalidate = 60;
@@ -45,30 +46,43 @@ export default async function Home() {
                     href={`/${slug}`}
                     className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
                   >
-                    {/* Banner Placeholder */}
-                    <div 
-                      className="w-full h-40 flex items-center justify-center relative overflow-hidden"
-                      style={{
-                        background: `linear-gradient(135deg, ${streamer.themeColors?.primary || '#8B5CF6'}, ${streamer.themeColors?.secondary || '#EC4899'})`
-                      }}
-                    >
+                    {/* Banner */}
+                    <div className="w-full h-40 relative overflow-hidden bg-gray-200 dark:bg-gray-700">
+                      {streamer.banner && (
+                        <Image
+                          src={streamer.banner}
+                          alt={`${streamer.name} banner`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-                      <span className="text-white font-semibold text-center px-4">
-                        {streamer.name}
-                      </span>
                     </div>
 
                     {/* Card Content */}
                     <div className="p-4">
                       {/* Avatar */}
                       <div className="flex items-center gap-4 mb-3">
-                        <div 
-                          className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold shrink-0"
-                          style={{
-                            background: `linear-gradient(135deg, ${streamer.themeColors?.primary || '#8B5CF6'}, ${streamer.themeColors?.secondary || '#EC4899'})`
-                          }}
-                        >
-                          {streamer.name.charAt(0)}
+                        <div className="w-12 h-12 rounded-full flex-shrink-0 relative bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                          {streamer.avatar ? (
+                            <Image
+                              src={streamer.avatar}
+                              alt={`${streamer.name} avatar`}
+                              fill
+                              className="object-cover"
+                              sizes="48px"
+                            />
+                          ) : (
+                            <div 
+                              className="w-full h-full flex items-center justify-center text-white font-bold"
+                              style={{
+                                background: `linear-gradient(135deg, ${streamer.themeColors?.primary || '#8B5CF6'}, ${streamer.themeColors?.secondary || '#EC4899'})`
+                              }}
+                            >
+                              {streamer.name.charAt(0)}
+                            </div>
+                          )}
                         </div>
                         <div className="flex-1 min-w-0">
                           <h3 className="font-bold text-lg text-gray-900 dark:text-white truncate">

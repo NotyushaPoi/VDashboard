@@ -6,6 +6,7 @@ import {
 } from "@/app/lib/utils";
 import { TabPanel } from "@/app/components/TabPanel";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export const revalidate = 60;
@@ -72,15 +73,27 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      {/* Banner with Split Buttons - using theme colors */}
-      <div
-        className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: themeColors
-            ? `linear-gradient(135deg, ${themeColors.primary} 0%, ${themeColors.secondary} 100%)`
-            : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        }}
-      >
+      {/* Banner */}
+      <div className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden bg-gray-200 dark:bg-gray-700">
+        {streamer.banner ? (
+          <Image
+            src={streamer.banner}
+            alt={`${streamer.name} banner`}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background: themeColors
+                ? `linear-gradient(135deg, ${themeColors.primary} 0%, ${themeColors.secondary} 100%)`
+                : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            }}
+          />
+        )}
         <div className="absolute inset-0 bg-black/0" />
 
         {/* Left Button - B站主页 */}
@@ -123,17 +136,29 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
         {/* Header with Info */}
         <div className="mb-12">
           <div className="flex flex-col sm:flex-row gap-8 items-start">
-            {/* Avatar */}
+          {/* Avatar */}
             <div className="flex-shrink-0">
-              <div
-                className="w-32 h-32 rounded-full flex items-center justify-center text-white text-4xl font-bold"
-                style={{
-                  backgroundImage: themeColors
-                    ? `linear-gradient(135deg, ${themeColors.primary} 0%, ${themeColors.secondary} 100%)`
-                    : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                }}
-              >
-                {streamer.name.charAt(0)}
+              <div className="w-32 h-32 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+                {streamer.avatar ? (
+                  <Image
+                    src={streamer.avatar}
+                    alt={`${streamer.name} avatar`}
+                    fill
+                    className="object-cover"
+                    sizes="128px"
+                  />
+                ) : (
+                  <div
+                    className="w-full h-full flex items-center justify-center text-white text-4xl font-bold"
+                    style={{
+                      background: themeColors
+                        ? `linear-gradient(135deg, ${themeColors.primary} 0%, ${themeColors.secondary} 100%)`
+                        : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    }}
+                  >
+                    {streamer.name.charAt(0)}
+                  </div>
+                )}
               </div>
             </div>
 
