@@ -56,6 +56,14 @@ interface StreamerWithPlaylists extends Streamer {
   playlists: PlaylistWithSongs[];
 }
 
+interface Video {
+  id: number;
+  title: string;
+  cover: string;
+  videoUrl: string;
+  description?: string;
+}
+
 // 定义 JSON Schema 用于验证
 const streamerSchema = {
   type: 'object',
@@ -127,10 +135,23 @@ const songSchema = {
   required: ['id', 'name', 'artist', 'genre', 'tag', 'language', 'album', 'lyrics'],
 };
 
+const videoSchema = {
+  type: 'object',
+  properties: {
+    id: { type: 'number' },
+    title: { type: 'string' },
+    cover: { type: 'string' },
+    videoUrl: { type: 'string' },
+    description: { type: 'string' },
+  },
+  required: ['id', 'title', 'cover', 'videoUrl'],
+};
+
 // 初始化验证器
 const ajv = new Ajv();
 const validateStreamer = ajv.compile(streamerSchema);
 const validateSong = ajv.compile(songSchema);
+const validateVideo = ajv.compile(videoSchema);
 
 // 辅助函数
 function loadYaml(filePath: string): any {
@@ -241,6 +262,25 @@ async function buildData() {
   const indexFile = path.join(publicDataDir, 'streamers.json');
   writeJson(indexFile, { streamers: streamersIndex });
   console.log(`\n✅ 主播索引已生成: ${indexFile}\n`);
+
+  // 加载视频数据
+  console.log('🎬 加载视频数据...');
+  const videosFile = path.join(dataDir, 'videos.yaml');
+  const videosData = loadYaml(videosFile) as { videos: Video[] };
+  
+  // 验证每个视频
+  videosData.videos.forEach((video: Video, index: number) => {
+    if (!validateVideo(video)) {
+      console.error(`❌ 视频 ${index + 1} 验证失败:`, validateVideo.errors);
+      process.exit(1);
+    }
+  });
+  
+  // 写入视频 JSON
+  const videosOutputFile = path.join(publicDataDir, 'videos.json');
+  writeJson(videosOutputFile, videosData.videos);
+  console.log(`✅ 已加载 ${videosData.videos.length} 个视频`);
+  console.log(`✅ 视频数据已生成: ${videosOutputFile}\n`);
 
   console.log('✨ 数据构建完成！');
   console.log(`📁 输出目录: ${publicDataDir}`);

@@ -66,4 +66,3 @@ next-env.d.ts
 
 # Generated data (ignore only generated JSON files, keep YAML sources)
 vdashboard/public/data/**/*.json
-!vdashboard/public/data/videos.json
