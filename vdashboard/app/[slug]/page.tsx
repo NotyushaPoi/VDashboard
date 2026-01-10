@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: StreamerPageProps) {
   }
 
   return {
-    title: `${streamer.name} - VDashboard`,
+    title: `${streamer.name} - Harumonie`,
     description: streamer.bio,
   };
 }
@@ -110,11 +110,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
           </div>
         </a>
 
-        {/* Center Content */}
-        <div className="relative z-5 text-white text-center pointer-events-none">
-          <div className="text-6xl font-bold mb-4">🎬</div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">{streamer.name}</h1>
-        </div>
+        {/* Center Content - Empty for now, banner speaks for itself */}
 
         {/* Right Button - 直播间 */}
         <a
@@ -244,7 +240,7 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
       {/* Footer */}
       <footer className="border-t border-gray-200 dark:border-gray-700 py-8 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-900 mt-12">
         <div className="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-400">
-          <p>© 2024 VDashboard. All rights reserved.</p>
+          <p>© 2024 Harumonie. All rights reserved.</p>
         </div>
       </footer>
     </main>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Video } from "@/app/lib/types";
 
 interface CarouselProps {
@@ -68,14 +69,16 @@ export function Carousel({ videos }: CarouselProps) {
             }}
           >
             {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url('${video.cover}')`,
-              }}
+            <Image
+              src={video.cover}
+              alt={video.title}
+              fill
+              className="object-cover"
+              priority={currentIndex === videos.indexOf(video)}
+              sizes="100vw"
             />
-            {/* Fallback gradient if image doesn't load */}
-            <div className="absolute inset-0 bg-linear-to-br from-purple-400 via-pink-400 to-purple-500" />
+            {/* Fallback gradient overlay */}
+            <div className="absolute inset-0 bg-linear-to-br from-purple-400 via-pink-400 to-purple-500 opacity-0" />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover/item:bg-black/20 transition-colors" />
             {/* Video Title at Bottom Left */}

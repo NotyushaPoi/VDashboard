@@ -6,12 +6,12 @@
 
 | 主播 | 账号 UID | 直播间地址 |
 |------|---------|--------|
-| 希羗Kirara | 8230334 | https://live.bilibili.com/400605 |
+| 希罗Kirara | 8230334 | https://live.bilibili.com/400605 |
 | Yvaine可可 | 9638159 | https://live.bilibili.com/916864 |
-| Choco | 399491783 | https://live.bilibili.com/23332686 |
+| 恰恰恰蘑菇 | 399491783 | https://live.bilibili.com/23332686 |
 | 姬月樱 | 5744398 | https://live.bilibili.com/1820330437 |
 | 悄悄Qoo | 1436878388 | https://live.bilibili.com/23831283 |
-| 浅律 | 6483585 | https://live.bilibili.com/22553887 |
+| 浅律Asaritsu | 6483585 | https://live.bilibili.com/22553887 |
 
 ## 获取直播间地址的方法
 
@@ -50,12 +50,12 @@ liveUrl: "https://live.bilibili.com/21652200"
 
 ## 完成检查
 
-- [x] 希羗Kirara - 预认账号 + 直播间
+- [x] 希罗Kirara - 预认账号 + 直播间
 - [x] Yvaine可可 - 预认账号 + 直播间
-- [x] Choco - 预认账号 + 直播间
+- [x] 恰恰恰蘑菇 - 预认账号 + 直播间
 - [x] 姬月樱 - 预认账号 + 直播间
 - [x] 悄悄Qoo - 预认账号 + 直播间
-- [x] 浅律 - 预认账号 + 直播间
+- [x] 浅律Asaritsu - 预认账号 + 直播间
 
 ✅ **所有信息已更新！**
 

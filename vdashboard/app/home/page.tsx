@@ -123,7 +123,7 @@ export default async function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-200 dark:border-gray-700 py-8 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto text-center text-gray-600 dark:text-gray-400">
-          <p>© 2025 VDashboard. All rights reserved.</p>
+          <p>© 2025 Harumonie. All rights reserved.</p>
         </div>
       </footer>
     </main>

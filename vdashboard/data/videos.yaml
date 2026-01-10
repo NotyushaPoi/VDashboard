@@ -15,12 +15,22 @@ videos:
     videoUrl: "https://www.bilibili.com/video/BV1w9tszhEey/"
     description: "【春和音】Let's! Enjoy summer time~!超高质量六人翻唱｜夏めきペイン｜夏意渐浓Pain【原创PV付】"
   - id: 4
-    title: "月夜見海月"
+    title: "NO EXIT ORION"
     cover: "/images/video/video4-cover.jpg"
+    videoUrl: "https://www.bilibili.com/video/BV1QdCVBeEHW/"
+    description: "【【春和音】除了我以外，你不需要别人……丨NO EXIT ORION丨六人甜蜜翻唱『没有出口的猎户座』【Printemps"
+  - id: 5
+    title: "月夜見海月"
+    cover: "/images/video/video5-cover.jpg"
     videoUrl: "https://www.bilibili.com/video/BV12pUdBREN2/"
     description: "【春和音】「月夜見海月」超治愈高质量大制作！成为海中的那轮明月！【原创PV付】"
-  - id: 5
+  - id: 6
     title: "Trick & Cute"
-    cover: "/images/video/video5-cover.jpg"
+    cover: "/images/video/video6-cover.jpg"
     videoUrl: "https://www.bilibili.com/video/BV1eC28BtEzr/"
     description: "【春和音】捣蛋or可爱？「Trick & Cute」超可爱六人翻唱！【原创PV付】"
+  - id: 7
+    title: "365 Days"
+    cover: "/images/video/video7-cover.jpg"
+    videoUrl: "https://www.bilibili.com/video/BV1epvmB1EQJ/"
+    description: "【春和音】「365 Days」与你一起的每日都闪闪发光✨【原创PV付】"
