@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: StreamerPageProps) {
 
   return {
     title: `${streamer.name} - Harumonie`,
-    description: streamer.bio,
+    description: streamer.description,
   };
 }
 
@@ -72,8 +72,8 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
   const biliBiliLiveUrl = streamer.liveUrl || `https://live.bilibili.com/${streamer.bilibiliId}`;
 
   const gradientBg = themeColors 
-    ? `linear-gradient(135deg, rgba(${parseInt(themeColors.primary.slice(1,3), 16)}, ${parseInt(themeColors.primary.slice(3,5), 16)}, ${parseInt(themeColors.primary.slice(5,7), 16)}, 0.05), rgba(${parseInt(themeColors.secondary.slice(1,3), 16)}, ${parseInt(themeColors.secondary.slice(3,5), 16)}, ${parseInt(themeColors.secondary.slice(5,7), 16)}, 0.05))`
-    : 'linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05))';
+    ? `linear-gradient(135deg, rgba(${parseInt(themeColors.primary.slice(1,3), 16)}, ${parseInt(themeColors.primary.slice(3,5), 16)}, ${parseInt(themeColors.primary.slice(5,7), 16)}, 0.1), rgba(${parseInt(themeColors.secondary.slice(1,3), 16)}, ${parseInt(themeColors.secondary.slice(3,5), 16)}, ${parseInt(themeColors.secondary.slice(5,7), 16)}, 0.1))`
+    : 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1))';
 
   return (
     <main 
@@ -175,9 +175,6 @@ export default async function StreamerPage({ params }: StreamerPageProps) {
                   UID: {streamer.bilibiliId}
                 </span>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                {streamer.bio}
-              </p>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
                 {streamer.description}
               </p>

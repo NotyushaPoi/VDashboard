@@ -13,7 +13,6 @@ interface Streamer {
   id: number;
   name: string;
   slug: string;
-  bio: string;
   avatar: string;
   banner: string;
   bilibiliId: string;
@@ -71,7 +70,6 @@ const streamerSchema = {
     id: { type: 'number' },
     name: { type: 'string' },
     slug: { type: 'string' },
-    bio: { type: 'string' },
     avatar: { type: 'string' },
     banner: { type: 'string' },
     bilibiliId: { type: 'string' },
@@ -116,7 +114,7 @@ const streamerSchema = {
       },
     },
   },
-  required: ['id', 'name', 'slug', 'bio', 'avatar', 'banner', 'themeColors', 'playlists'],
+  required: ['id', 'name', 'slug', 'avatar', 'banner', 'themeColors', 'playlists'],
 };
 
 const songSchema = {
@@ -249,7 +247,6 @@ async function buildData() {
       id: streamerData.id,
       name: streamerData.name,
       slug: streamerData.slug,
-      bio: streamerData.bio,
       avatar: streamerData.avatar,
       themeColors: streamerData.themeColors,
       file: `streamers/${slug}.json`,

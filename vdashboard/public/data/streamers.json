@@ -4,7 +4,6 @@
       "id": 1,
       "name": "希罗Kirara",
       "slug": "kirara",
-      "bio": "待补充...",
       "avatar": "/images/avatar/Avatar-Kirara.jpg",
       "themeColors": {
         "primary": "#FCBD91",
@@ -18,8 +17,7 @@
       "id": 2,
       "name": "Yvaine可可",
       "slug": "yvainne",
-      "bio": "待补充...",
-      "avatar": "/images/streamers/placeholder.jpg",
+      "avatar": "/images/avatar/Avatar-Yvaine.jpg",
       "themeColors": {
         "primary": "#30B4AB",
         "secondary": "#144B46"
@@ -32,7 +30,6 @@
       "id": 3,
       "name": "恰恰恰蘑菇",
       "slug": "choco",
-      "bio": "待补充...",
       "avatar": "/images/avatar/Avatar-Choco.jpg",
       "themeColors": {
         "primary": "#92D04F",
@@ -46,8 +43,7 @@
       "id": 4,
       "name": "姬月樱",
       "slug": "sakura",
-      "bio": "待补充...",
-      "avatar": "/images/streamers/placeholder.jpg",
+      "avatar": "/images/avatar/Avatar-Sakura.jpg",
       "themeColors": {
         "primary": "#FFDB4F",
         "secondary": "#F4CFE0"
@@ -60,8 +56,7 @@
       "id": 5,
       "name": "悄悄Qoo",
       "slug": "qoo",
-      "bio": "待补充...",
-      "avatar": "/images/streamers/placeholder.jpg",
+      "avatar": "/images/avatar/Avatar-Qoo.jpg",
       "themeColors": {
         "primary": "#FFD2DE",
         "secondary": "#9A4856"
@@ -72,10 +67,9 @@
     },
     {
       "id": 6,
-      "name": "浅律",
+      "name": "浅律Asaritsu",
       "slug": "asaritsu",
-      "bio": "待补充...",
-      "avatar": "/images/streamers/placeholder.jpg",
+      "avatar": "/images/avatar/Avatar-Asaritsu.jpg",
       "themeColors": {
         "primary": "#C0C2FA",
         "secondary": "#FCD4DD"

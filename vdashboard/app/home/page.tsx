@@ -12,14 +12,14 @@ export default async function Home() {
     <main 
       className="min-h-screen bg-white text-gray-900 relative overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/bg2.png)',
+        backgroundImage: 'url(/images/bg.png)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
       }}
     >
       {/* Overlay for better readability */}
-      <div className="absolute inset-0 bg-white/45" />
+      <div className="absolute inset-0 bg-white/50" />
       <div className="relative z-10">
       {/* Hero Section with Carousel */}
       <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8">
@@ -106,11 +106,6 @@ export default async function Home() {
                           </h3>
                         </div>
                       </div>
-
-                      {/* Bio */}
-                      <p className="text-sm text-gray-700 mb-4 line-clamp-2">
-                        {streamer.bio}
-                      </p>
 
                       {/* Stats */}
                       <div className="flex gap-4 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-300">

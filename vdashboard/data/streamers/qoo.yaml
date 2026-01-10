@@ -3,9 +3,8 @@
 id: 5
 name: "悄悄Qoo"
 slug: "qoo"
-bio: "待补充..."
-avatar: "/images/streamers/placeholder.jpg"
-banner: "/images/streamers/placeholder-banner.jpg"
+avatar: "/images/avatar/Avatar-Qoo.jpg"
+banner: "/images/streamer/Banner-Qoo.jpg"
 
 # B站信息
 bilibiliId: "1436878388"
@@ -21,4 +20,4 @@ themeColors:
 
 # 主播描述
 description: |
-  待补充
+  成长系陪伴势 会唱一点歌 弹一点尤克里里 有一个小小的音乐梦想~ 非全职 和悄悄D的十年之约进度4/10 感谢喜欢～会一直保持进步的！

@@ -1,12 +1,10 @@
 # 浅律 - 主播信息配置
 
 id: 6
-name: "浅律"
+name: "浅律Asaritsu"
 slug: "asaritsu"
-bio: "待补充..."
-avatar: "/images/streamers/placeholder.jpg"
-banner: "/images/streamers/placeholder-banner.jpg"
-
+avatar: "/images/avatar/Avatar-Asaritsu.jpg"
+banner: "/images/streamer/Banner-Asaritsu.jpg"
 # B站信息
 bilibiliId: "6483585"
 bilibiliSpaceUrl: "https://space.bilibili.com/6483585"
@@ -21,4 +19,4 @@ themeColors:
 
 # 主播描述
 description: |
-  待补充
+  【魔法少女系唱见】我是虚拟魔怔人组合“早睡Project”的成员浅律！我最喜欢唱歌了，请多关照！ 唱见/混音/翻译 人设：Nar13

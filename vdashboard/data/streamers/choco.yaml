@@ -1,9 +1,8 @@
-# Choco - 主播信息配置
+# 恰恰恰蘑菇 - 主播信息配置
 
 id: 3
 name: "恰恰恰蘑菇"
 slug: "choco"
-bio: "待补充..."
 avatar: "/images/avatar/Avatar-Choco.jpg"
 banner: "/images/streamer/Banner-Choco.jpg"
 
@@ -21,4 +20,4 @@ themeColors:
 
 # 主播描述
 description: |
-  待补充
+  固定每周二四晚8直播 粉丝群：657843157（会有抽奖） 梦想成为爱抖露和闪耀舞台！

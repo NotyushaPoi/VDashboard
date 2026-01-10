@@ -3,9 +3,8 @@
 id: 4
 name: "姬月樱"
 slug: "sakura"
-bio: "待补充..."
-avatar: "/images/streamers/placeholder.jpg"
-banner: "/images/streamers/placeholder-banner.jpg"
+avatar: "/images/avatar/Avatar-Sakura.jpg"
+banner: "/images/streamer/Banner-Sakura.jpg"
 
 # B站信息
 bilibiliId: "5744398"
@@ -21,4 +20,4 @@ themeColors:
 
 # 主播描述
 description: |
-  待补充
+  .:*✿ʚ个人势花之妖精ɞ✿*ﾟFF14占星丨缪水虹星莲鸟丨音击舞萌中二丨聊天粉丝群1022560083
